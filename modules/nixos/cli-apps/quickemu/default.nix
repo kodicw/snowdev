@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.apps.quickemu;
+  cfg = config.${namespace}.cli-apps.quickemu;
 in
 {
-  options.${namespace}.apps.quickemu = {
+  options.${namespace}.cli-apps.quickemu = {
     enable = mkEnableOption "Whether or not to enable quickemu.";
   };
 

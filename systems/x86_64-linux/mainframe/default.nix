@@ -44,6 +44,7 @@ with lib.${namespace};
     virtualisation = {
       docker = enabled;
       virt-manager = enabled;
+      vmVariant = enabled;
     };
   };
 

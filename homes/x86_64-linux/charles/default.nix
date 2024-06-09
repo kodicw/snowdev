@@ -32,5 +32,8 @@ with lib.${namespace}; {
       waybar = enabled;
       wofi = enabled;
     };
+    bundles = {
+      charles = enabled;
+    };
   };
 }

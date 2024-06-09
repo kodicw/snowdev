@@ -16,6 +16,10 @@ let
     libreoffice = enabled;
     stacer = enabled;
   };
+  cli-apps = {
+    kitty = enabled;
+    home-manager = enabled;
+  };
   desktop = {
     plasma = enabled;
   };
@@ -25,5 +29,5 @@ in
     enable = mkEnableOption "Whether or not to enable python.";
   };
 
-  config = mkIf cfg.enable { genix = { inherit apps desktop; }; };
+  config = mkIf cfg.enable { genix = { inherit apps cli-apps desktop; }; };
 }

@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.apps.kitty;
+  cfg = config.${namespace}.cli-apps.kitty;
 in
 {
-  options.${namespace}.apps.kitty = {
+  options.${namespace}.cli-apps.kitty = {
     enable = mkEnableOption "Whether or not to enable kitty.";
   };
 

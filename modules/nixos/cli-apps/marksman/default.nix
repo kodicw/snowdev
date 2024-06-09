@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.apps.marksman;
+  cfg = config.${namespace}.cli-apps.marksman;
 in
 {
-  options.${namespace}.apps.marksman = {
+  options.${namespace}.cli-apps.marksman = {
     enable = mkEnableOption "Whether or not to enable marksman.";
   };
 

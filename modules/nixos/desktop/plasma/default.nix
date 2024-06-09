@@ -14,8 +14,8 @@ with lib.${namespace};
     ${namespace}.desktop.plasma.enable = mkEnableOption "Plasma Desktop";
   };
   config = mkIf cfg.enable {
-    services.xserver = {
-      enable = true;
+    services = {
+      xserver.enable = true;
       desktopManager.plasma6.enable = true;
       displayManager.sddm.enable = true;
     };
