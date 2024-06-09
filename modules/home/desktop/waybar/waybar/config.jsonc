@@ -1,0 +1,184 @@
+{
+	"layer": "top",
+	"position": "top",
+	"mod": "dock",
+	"exclusive": true,
+	"passtrough": false,
+	"gtk-layer-shell": true,
+	"height": 0,
+	"modules-left": [
+		"clock",
+		"user",
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"hyprland/window"
+	],
+	"modules-right": [
+		"hyprland/taskbar",
+		"tray",
+		"network",
+		"custom/wallpaper",
+		"memory",
+		"cpu",
+		"pulseaudio#microphone",
+		"pulseaudio"
+		// "custom/power"
+	],
+	"hyprland/window": {
+		"format": "🎉 {}"
+	},
+	"custom/power": {
+		"format": " {}",
+		"exec": "echo ; echo  logout",
+		"on-click": "~/.config/rofi/applets/bin/powermenu.sh",
+		"interval": 86400,
+		"tooltip": true
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-active": " {icon} ",
+		"on-click": "activate"
+		// "format-icons":{
+		//     "10":"10"
+		// }
+		// "on-scroll-up": "hyprctl dispatch workspace e+1",
+		// "on-scroll-down": "hyprctl dispatch workspace e-1",
+		// "all-outputs": true,
+		// "on-click": "activate",
+		// "format": "{icon}",
+		// "format-icons": {
+		// 	"1": "",
+		// 	"2": "",
+		// 	"3": "",
+		// 	"4": "",
+		// 	"5": "",
+		// 	"urgent": "",
+		// 	"active": "",
+		// 	"default": ""
+		// }
+	},
+	"custom/wallpaper": {
+		"on-click": "/home/charles/dev/scripts/nu/wallpaper/gifpaper.nu select",
+		"format": "\udb80\udee9 {}"
+	},
+	"tray": {
+		"icon-size": 13,
+		"tooltip": false,
+		"spacing": 10
+	},
+	"cpu": {
+		"interval": 10,
+		"format": "󰍛 {usage}%",
+		"format-alt": "{icon0}{icon1}{icon2}{icon3}",
+		"format-icons": [
+			"▁",
+			"▂",
+			"▃",
+			"▄",
+			"▅",
+			"▆",
+			"▇",
+			"█"
+		]
+	},
+	"memory": {
+		"interval": 30,
+		"format": "󰾆 {percentage}%",
+		"format-alt": "󰾅 {used}GB",
+		"max-length": 10,
+		"tooltip": true,
+		"tooltip-format": " {used:0.1f}GB/{total:0.1f}GB"
+	},
+	"clock": {
+		"format": " {:%R   %d/%m}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"tooltip": false,
+		"format-muted": " Muted",
+		"on-click": "pavucontrol",
+		"on-scroll-up": "pamixer -i 5",
+		"on-scroll-down": "pamixer -d 5",
+		"scroll-step": 5,
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		}
+	},
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"tooltip": false,
+		"format-source": " {volume}%",
+		"format-source-muted": " Muted",
+		"on-click": "pamixer --default-source -t",
+		"on-scroll-up": "pamixer --default-source -i 5",
+		"on-scroll-down": "pamixer --default-source -d 5",
+		"scroll-step": 5
+	},
+	// "wireplumber": {
+	//     "format": "{icon} {volume}%",
+	//     "format-muted": "",
+	//     "on-click": "pavucontrol",
+	//     "format-icons": ["", "", ""],
+	//     "max-volume": 150,
+	//     "scroll-step": 0.2
+	// },
+	"network": {
+		"interface": "enp2s0",
+		"format": "\udb80\ude00 {ifname}",
+		"format-wifi": "{essid} ({signalStrength}%)",
+		"format-ethernet": "Wired",
+		"format-disconnected": "", //An empty format will hide the module.
+		"tooltip-format": "{ifname} via {gwaddr}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%)",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
+	},
+	"hyprland/taskbar": {
+		"format": "{icon}",
+		"icon-size": 14,
+		"icon-theme": "Numix-Circle",
+		"tooltip-format": "{title}",
+		"on-click": "activate",
+		"on-click-middle": "close",
+		"ignore-list": [
+			"Alacritty"
+		],
+		"app_ids-mapping": {
+			"firefoxdeveloperedition": "firefox-developer-edition"
+		},
+		"rewrite": {
+			"Firefox Web Browser": "Firefox",
+			"Foot Server": "Terminal"
+		},
+		"user": {
+			"format": "{user} (up {work_d} days ↑)",
+			"interval": 60,
+			"height": 30,
+			"width": 30,
+			"icon": true
+		}
+	}
+}
+// positions generated based on config.ctl //
+// "modules-left": ["custom/padd","","custom/padd"],
+// "modules-center": ["custom/padd","","custom/padd"],
+// "modules-right": ["custom/padd","","custom/padd"],
+// sourced from modules based on config.ctl //
+// positions generated based on config.ctl //
+// "modules-left": ["custom/padd","","custom/padd"],
+// "modules-center": ["custom/padd","","custom/padd"],
+// "modules-right": ["custom/padd","","custom/padd"],
+// sourced from modules based on config.ctl //
