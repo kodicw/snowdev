@@ -19,7 +19,8 @@ with lib.${namespace};
       efi.canTouchEfiVariables = true;
       grub = {
         enable = true;
-        device = "nodev";
+        device = "dev/sda";
+        useOSProber = true;
         efiSupport = true;
       };
     };
