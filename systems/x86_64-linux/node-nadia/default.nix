@@ -31,6 +31,11 @@ with lib.${namespace};
       audio = enabled;
       bluetooth = enabled;
     };
+    desktop = {
+      hyprland = enabled;
+      plasma = enabled;
+    };
+
     services = {
       openssh = enabled;
       tailscale = enabled;

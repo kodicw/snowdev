@@ -22,10 +22,10 @@ in
     services.openssh = {
       enable = true;
       settings = {
-        PermitRootLogin =
-          if format == "install-iso"
-          then "yes"
-          else "no";
+        # PermitRootLogin =
+        #   if format == "install-iso"
+        #   then "yes"
+        #   else "no";
         PasswordAuthentication = false;
       };
     };
