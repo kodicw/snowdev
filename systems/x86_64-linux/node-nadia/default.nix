@@ -21,6 +21,7 @@ with lib.${namespace};
     system = {
       boot.grub.enable = true;
       boot.grub.device = "/dev/sda";
+      boot.grub.efiSupport = false;
       locale = enabled;
       fonts = enabled;
       time = enabled;
