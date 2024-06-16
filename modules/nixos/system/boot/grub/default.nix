@@ -38,7 +38,7 @@ with lib.${namespace};
         enable = true;
         device = cfg.device;
         useOSProber = cfg.useOSProber;
-        efiSupport = cfg.efgSupport;
+        efiSupport = cfg.efiSupport;
       };
     };
   };
