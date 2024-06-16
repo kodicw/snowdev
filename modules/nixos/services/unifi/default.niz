@@ -1,0 +1,19 @@
+{ lib
+, pkgs
+, config
+, namespace
+, ...
+}:
+with lib;
+with lib.${namespace}; let
+  cfg = config.${namespace}.services.unifi;
+in
+{
+  options.${namespace}.services.unifi = with types; {
+    enable = mkEnableOption "Whether or not to configure unifi";
+  };
+
+  config = mkIf cfg.enable {
+    services.unifi.enable = true;
+  };
+}

@@ -5,7 +5,19 @@ in
 with lib;
 {
   options = {
-    ${namespace}.services.adguardHome.enable = mkEnableOption "Enable Adguard Home";
+    ${namespace}.services.adguardHome = {
+      enable = mkEnableOption "Enable Adguard Home";
+      port = mkOption {
+        type = types.port;
+        default = 8000;
+        description = "Port to bind Adguard Home to";
+      };
+      host = mkOption {
+        type = types.str;
+        default = "0.0.0.0";
+        description = "Host to bind Adguard Home to";
+      };
+    };
   };
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
@@ -16,8 +28,8 @@ with lib;
       mutableSettings = true;
       openFirewall = true;
       settings = {
-        bind_host = "0.0.0.0";
-        bind_port = 8000;
+        host = cfg.host;
+        port = cfg.port;
       };
     };
   };

@@ -6,6 +6,8 @@
     snowfall-lib.url = "github:snowfallorg/lib";
     snowfall-lib.inputs.nixpkgs.follows = "nixpkgs";
 
+    stylix.url = "github:danth/stylix";
+
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -35,10 +37,25 @@
         };
       };
     in
+
     lib.mkFlake {
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
+        stylix.nixosModules.stylix
       ];
+
+      deploy = with inputs; {
+        nodes = {
+          node-nadia = {
+            hostname = "node-nadia";
+            # sshOpts = [ "-i" "/home/charles/.ssh/id_rsa" ];
+            profiles.system = {
+              user = "charles";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.node-nadia;
+            };
+          };
+        };
+      };
 
       channels-config.allowUnfree = true;
     };
