@@ -27,10 +27,8 @@ with lib;
       enable = true;
       mutableSettings = true;
       openFirewall = true;
-      settings = {
-        host = cfg.host;
-        port = cfg.port;
-      };
+      host = cfg.host;
+      port = cfg.port;
     };
   };
 }

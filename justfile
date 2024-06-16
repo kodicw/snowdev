@@ -6,4 +6,10 @@ check:
     nix flake check
 vm: check
     nixos-rebuild build-vm --impure --flake .#mainframe
+send:
+  just check
+  git commit -am "send it!🌋"
+  git push
+  
+
 
