@@ -19,7 +19,8 @@ with lib.${namespace};
       root = enabled;
     };
     system = {
-      boot.grub = enabled;
+      boot.grub.enable = true;
+      boot.grub.device = "/dev/sda";
       locale = enabled;
       fonts = enabled;
       time = enabled;
