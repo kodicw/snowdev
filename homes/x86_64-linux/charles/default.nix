@@ -15,7 +15,7 @@ with lib.${namespace}; {
     desktop = {
       hyprland = enabled;
       waybar = enabled;
-      # ags = enabled;
+      ags = enabled;
     };
     bundles = {
       charles = enabled;
