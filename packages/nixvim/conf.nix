@@ -113,7 +113,7 @@
     };
     telescope = {
       enable = true;
-      defaults.file_ignore_patterns = [ "^.git/" ];
+      settings.defaults.file_ignore_patterns = [ "^.git/" ];
       keymaps."<leader>e" = "find_files";
     };
     which-key.enable = true;
@@ -140,7 +140,7 @@
           enable = true;
           autostart = true;
         };
-        nil_ls.enable = true;
+        nil-ls.enable = true;
         tsserver.enable = true;
         pyright = {
           enable = true;

@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  hostname = "mainframe";
+  hostname = "angel";
 in
 with lib;
 with lib.${namespace};
@@ -18,9 +18,7 @@ with lib.${namespace};
       workstation = enabled;
     };
     user = {
-      charles = enabled;
       angel = enabled;
-      phoenix = enabled;
       root = enabled;
     };
     system = {

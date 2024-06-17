@@ -4,6 +4,9 @@
 , namespace
 , ...
 }:
+let
+  hostname = "node-nadia";
+in
 with lib;
 with lib.${namespace};
 {
@@ -12,7 +15,7 @@ with lib.${namespace};
   ];
   genix = {
     techstack = {
-      server = enabled;
+      workstation = enabled;
     };
     user = {
       charles = enabled;
@@ -30,12 +33,12 @@ with lib.${namespace};
     hardware = {
       audio = enabled;
       bluetooth = enabled;
+      nvidia = enabled;
     };
     desktop = {
-      hyprland = enabled;
       plasma = enabled;
+      hyprland = enabled;
     };
-
     services = {
       openssh = enabled;
       tailscale = enabled;
@@ -43,6 +46,7 @@ with lib.${namespace};
       homepage = enabled;
       soft-serve = enabled;
       photoprism = enabled;
+      ollama = enabled;
     };
     virtualisation = {
       docker = enabled;
@@ -51,11 +55,12 @@ with lib.${namespace};
     };
   };
   networking = {
-    hostName = "node-nadia";
+    hostName = hostname;
     networkmanager.enable = true;
     interfaces.wlp5s0.ipv4.addresses = [{
       address = "192.168.1.12";
       prefixLength = 24;
     }];
   };
+  system.stateVersion = "23.05";
 }

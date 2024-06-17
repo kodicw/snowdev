@@ -105,6 +105,7 @@ in
         networkingTools ++
         webBrowser ++
         artificialIntelligence ++
+        charmingTools ++
         osintTools ++
         multiMediaPrograms ++
         hyprlandApplications ++

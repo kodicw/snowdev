@@ -38,6 +38,7 @@ with lib.${namespace};
       hyprlock
       polkit # for auth
       rofi # Application search bar
+      ags
       wl-clipboard
       xwaylandvideobridge
       xdg-desktop-portal
@@ -45,9 +46,9 @@ with lib.${namespace};
       xdg-desktop-portal-wlr
       xdg-desktop-portal-hyprland
     ];
-    nixpkgs.config.permittedInsecurePackages = [
-      "electron-25.9.0"
-    ];
+    # nixpkgs.config.permittedInsecurePackages = [
+    #   "electron-25.9.0"
+    # ];
   };
 }
 

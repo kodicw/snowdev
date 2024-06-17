@@ -575,22 +575,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-stable": {
-      "locked": {
-        "lastModified": 1718437845,
-        "narHash": "sha256-ZT7Oc1g4I4pHVGGjQFnewFVDRLH5cIZhEzODLz9YXeY=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "752c634c09ceb50c45e751f8791cb45cb3d46c9e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1718318537,
@@ -632,7 +616,7 @@
         "home-manager": "home-manager_2",
         "nix-darwin": "nix-darwin",
         "nixpkgs": [
-          "nixpkgs-stable"
+          "nixpkgs"
         ],
         "treefmt-nix": "treefmt-nix"
       },
@@ -658,7 +642,6 @@
         "nix-software-center": "nix-software-center",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-fixes": "nixpkgs-fixes",
-        "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "snowfall-lib": "snowfall-lib",
         "stylix": "stylix"

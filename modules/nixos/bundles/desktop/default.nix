@@ -15,6 +15,7 @@ let
     vivaldi = enabled;
     libreoffice = enabled;
     stacer = enabled;
+    obsidian = enabled;
   };
   cli-apps = {
     kitty = enabled;

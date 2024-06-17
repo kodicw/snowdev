@@ -4,9 +4,6 @@
 , namespace
 , ...
 }:
-let
-  hostname = "mainframe";
-in
 with lib;
 with lib.${namespace};
 {
@@ -17,10 +14,9 @@ with lib.${namespace};
     techstack = {
       workstation = enabled;
     };
+    stylix = enabled;
     user = {
       charles = enabled;
-      angel = enabled;
-      phoenix = enabled;
       root = enabled;
     };
     system = {
@@ -40,8 +36,6 @@ with lib.${namespace};
     hardware = {
       audio = enabled;
       bluetooth = enabled;
-      nvidia = enabled;
-      networkmanager = enabled;
     };
     services = {
       openssh = enabled;
@@ -53,9 +47,8 @@ with lib.${namespace};
       vmVariant = enabled;
     };
   };
-
   networking = {
-    hostName = hostname;
-    useDHCP = lib.mkDefault true;
+    hostName = "iso-amazing";
+    networkmanager.enable = true;
   };
 }

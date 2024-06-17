@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  hostname = "mainframe";
+  hostname = "catalyst";
 in
 with lib;
 with lib.${namespace};
@@ -46,6 +46,7 @@ with lib.${namespace};
     services = {
       openssh = enabled;
       tailscale = enabled;
+      nextcloud = enabled;
     };
     virtualisation = {
       docker = enabled;
@@ -53,7 +54,6 @@ with lib.${namespace};
       vmVariant = enabled;
     };
   };
-
   networking = {
     hostName = hostname;
     useDHCP = lib.mkDefault true;

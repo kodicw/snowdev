@@ -4,23 +4,17 @@
 , namespace
 , ...
 }:
-let
-  hostname = "mainframe";
-in
 with lib;
 with lib.${namespace};
+let
+  hostname = "ttc";
+in
 {
   imports = [
     ./hardware.nix
   ];
   genix = {
-    techstack = {
-      workstation = enabled;
-    };
     user = {
-      charles = enabled;
-      angel = enabled;
-      phoenix = enabled;
       root = enabled;
     };
     system = {
@@ -31,7 +25,7 @@ with lib.${namespace};
       xkb = enabled;
     };
     desktop = {
-      hyprland = enabled;
+      gnome = enabled;
     };
     bundles = {
       gaming = enabled;
@@ -40,7 +34,6 @@ with lib.${namespace};
     hardware = {
       audio = enabled;
       bluetooth = enabled;
-      nvidia = enabled;
       networkmanager = enabled;
     };
     services = {
