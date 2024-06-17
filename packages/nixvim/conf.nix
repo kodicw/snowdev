@@ -57,7 +57,19 @@
     todo-comments.enable = true;
     toggleterm.enable = true;
     neogit.enable = true;
-    dashboard.enable = true;
+    dashboard = {
+      enable = true;
+      settings = {
+        header = [
+          "███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗"
+          "████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║"
+          "██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║"
+          "██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║"
+          "██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║"
+          "╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
+        ];
+      };
+    };
     dap.enable = true;
     multicursors.enable = true;
     endwise.enable = true;

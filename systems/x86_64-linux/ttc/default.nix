@@ -49,6 +49,6 @@ in
 
   networking = {
     hostName = hostname;
-    useDHCP = lib.mkDefault true;
+    useDHCP = mkDefault true;
   };
 }
