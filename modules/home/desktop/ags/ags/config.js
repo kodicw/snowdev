@@ -261,6 +261,7 @@ App.config({
 	gtkTheme: "Adwaita-dark",
 	windows: [
 		Bar(1),
+		Bar(0),
 		applauncher,
 		NotificationPopups(),
 	],
