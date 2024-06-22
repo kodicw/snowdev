@@ -54,6 +54,9 @@ with lib.${namespace};
       vmVariant = enabled;
     };
   };
+
+  services.logind.lidSwitch = "ignore";
+
   networking = {
     hostName = hostname;
     networkmanager.enable = true;
