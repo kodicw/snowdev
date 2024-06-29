@@ -2,6 +2,7 @@
 , pkgs
 , modulesPath
 , namespace
+, inputs
 , ...
 }:
 let
@@ -15,7 +16,7 @@ with lib.${namespace};
   ];
   genix = {
     techstack = {
-      workstation = enabled;
+      server = enabled;
     };
     user = {
       charles = enabled;
@@ -35,10 +36,6 @@ with lib.${namespace};
       bluetooth = enabled;
       nvidia = enabled;
     };
-    desktop = {
-      plasma = enabled;
-      hyprland = enabled;
-    };
     services = {
       openssh = enabled;
       tailscale = enabled;
@@ -54,16 +51,23 @@ with lib.${namespace};
       vmVariant = enabled;
     };
   };
-
+  # Disable the lid switch for laptops
+  # useful for when you have a laptop and you want to close the lid without the system suspending
   services.logind.lidSwitch = "ignore";
 
   networking = {
     hostName = hostname;
     networkmanager.enable = true;
-    interfaces.wlp5s0.ipv4.addresses = [{
-      address = "192.168.1.12";
-      prefixLength = 24;
-    }];
+    interfaces = {
+      enp4s0.ipv4.addresses = [{
+        address = "192.168.1.12";
+        prefixLength = 24;
+      }];
+      wlp5s0.ipv4.addresses = [{
+        address = "192.168.1.12";
+        prefixLength = 24;
+      }];
+    };
   };
   system.stateVersion = "23.05";
 }

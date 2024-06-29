@@ -222,7 +222,7 @@ function Center() {
 		spacing: 8,
 		children: [
 			Media(),
-			Notification(),
+			// Notification(),
 		]
 	})
 }
@@ -263,7 +263,7 @@ App.config({
 		Bar(1),
 		Bar(0),
 		applauncher,
-		NotificationPopups(),
+		// NotificationPopups(),
 	],
 })
 

@@ -25,7 +25,7 @@ with lib.${namespace};
       };
       modesetting = mkOption {
         type = types.bool;
-        default = false;
+        default = true;
         description = "Enable Nvidia modesetting";
       };
       version = mkOption {

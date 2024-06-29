@@ -11,13 +11,20 @@ with lib;
 with lib.${namespace};
 {
   options = {
-    ${namespace}.desktop.plasma.enable = mkEnableOption "Plasma Desktop";
+    ${namespace}.desktop.plasma = {
+      enable = mkEnableOption "Plasma Desktop";
+    };
   };
   config = mkIf cfg.enable {
     services = {
-      xserver.enable = true;
-      desktopManager.plasma6.enable = true;
-      displayManager.sddm.enable = true;
+      xserver = {
+        enable = true;
+        desktopManager.plasma5.enable = true;
+      };
+      displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
     };
   };
 }

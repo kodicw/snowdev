@@ -14,15 +14,19 @@ with lib.${namespace}; {
   genix = {
     desktop = {
       hyprland = enabled;
-      waybar = enabled;
       ags = enabled;
     };
     bundles = {
-      charles = enabled;
+      desktop = enabled;
+      cli = enabled;
+    };
+    cli-apps = {
+      burpsuite = enabled;
     };
   };
   home.sessionVariables = {
     EDITOR = "nvim";
     FLAKE = "/etc/nixos";
   };
+  home.stateVersion = "24.05";
 }

@@ -10,7 +10,7 @@ with lib.${namespace}; let
   cfg = config.${namespace}.bundles.gaming;
   apps = {
     steam = enabled;
-    discord = enabled;
+    armcord = enabled;
     protontricks = enabled;
     bottles = enabled;
   };

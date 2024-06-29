@@ -12,14 +12,13 @@ let
   apps = {
     vlc = enabled;
     gparted = enabled;
-    vivaldi = enabled;
     libreoffice = enabled;
     stacer = enabled;
     obsidian = enabled;
+    spotify = enabled;
   };
   cli-apps = {
     kitty = enabled;
-    home-manager = enabled;
   };
   desktop = {
     plasma = enabled;

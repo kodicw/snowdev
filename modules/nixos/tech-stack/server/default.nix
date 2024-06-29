@@ -11,15 +11,12 @@ let
   cfg = config.${namespace}.techstack.server;
   bundles = {
     common = enabled;
+    charm = enabled;
   };
-  tools = {
-    just = enabled;
-  };
-  user.charles = enabled;
 in
 {
   options.${namespace}.techstack.server = {
     enable = mkEnableOption "server.";
   };
-  config = mkIf cfg.enable { genix = { inherit bundles tools user; }; };
+  config = mkIf cfg.enable { genix = { inherit bundles; }; };
 }

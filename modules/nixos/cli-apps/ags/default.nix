@@ -3,6 +3,7 @@
 , lib
 , pkgs
 , namespace
+, inputs
 , ...
 }:
 with lib;
@@ -16,7 +17,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      ags
+      inputs.ags.packages.${system}.ags
     ];
   };
 }

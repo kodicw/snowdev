@@ -29,7 +29,10 @@ with lib;
       openFirewall = true;
       host = cfg.host;
       port = cfg.port;
+      settings.schemaVersion = 28;
     };
+    networking.firewall.allowedTCPPorts = [ 53 ];
+    networking.firewall.allowedUDPPorts = [ 53 ];
   };
 }
 

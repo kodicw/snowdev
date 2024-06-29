@@ -51,4 +51,5 @@ in
     hostName = hostname;
     useDHCP = mkDefault true;
   };
+  system.stateVersion = "24.05";
 }

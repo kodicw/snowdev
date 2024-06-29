@@ -17,6 +17,7 @@ let
       pop = enabled;
       mods = enabled;
       skate = enabled;
+      vhs = enabled;
     };
   };
 in

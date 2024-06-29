@@ -29,6 +29,7 @@ with lib.${namespace};
       fonts = enabled;
       time = enabled;
       xkb = enabled;
+      stylix = enabled;
     };
     desktop = {
       hyprland = enabled;
@@ -36,6 +37,7 @@ with lib.${namespace};
     bundles = {
       gaming = enabled;
       development = enabled;
+      hyprland = enabled;
     };
     hardware = {
       audio = enabled;
@@ -44,7 +46,9 @@ with lib.${namespace};
       networkmanager = enabled;
     };
     services = {
+      openrgb = enabled;
       openssh = enabled;
+      cron = enabled;
       tailscale = enabled;
     };
     virtualisation = {
@@ -52,10 +56,28 @@ with lib.${namespace};
       virt-manager = enabled;
       vmVariant = enabled;
     };
+    apps = {
+      firefox = enabled;
+    };
   };
+
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking = {
     hostName = hostname;
     useDHCP = lib.mkDefault true;
   };
+  services.xserver = {
+    xrandrHeads = [
+      {
+        output = "DP-0";
+        primary = true;
+      }
+      {
+        output = "HDMI-0";
+        monitorConfig = ''Option "Enable" "false"'';
+      }
+    ];
+  };
+  system.stateVersion = "24.05";
 }

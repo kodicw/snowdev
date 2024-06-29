@@ -21,7 +21,7 @@ with lib.${namespace};
       };
       useOSProber = mkOption {
         type = types.bool;
-        default = true;
+        default = false;
         description = "Use os-prober to detect other operating systems";
       };
       efiSupport = mkOption {

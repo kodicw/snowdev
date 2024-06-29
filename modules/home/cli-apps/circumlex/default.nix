@@ -7,14 +7,14 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.cli-apps.circumlex;
-  in
-  {
-  options.${namespace}.cli-apps.circumlex = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable circumlex.";
-  };
+  cfg = config.${namespace}.cli-apps.circumflex;
+in
+{
+  options.${namespace}.cli-apps.circumflex = with types;
+    {
+      enable = mkEnableOption "Whether or not to enable circumflex.";
+    };
 
   config =
-    mkIf cfg.enable { home.packages = with pkgs; [ circumlex ]; };
-  }
+    mkIf cfg.enable { home.packages = with pkgs; [ circumflex ]; };
+}

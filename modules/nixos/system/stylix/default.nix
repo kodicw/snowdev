@@ -1,12 +1,12 @@
 { config, lib, pkgs, namespace, inputs, ... }:
 let
-  cfg = config.${namespace}.stylix;
+  cfg = config.${namespace}.system.stylix;
 in
 with lib;
 with lib.${namespace};
 {
   options = {
-    ${namespace}.stylix = {
+    ${namespace}.system.stylix = {
       enable = mkEnableOption "stylix";
       polarity = mkOption {
         type = types.str;

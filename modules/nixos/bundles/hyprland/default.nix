@@ -12,10 +12,13 @@ let
   cli-apps = {
     ags = enabled;
   };
+  services = {
+    hypridle = enabled;
+  };
 in
 {
   options.${namespace}.bundles.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
-    genix = { inherit cli-apps; };
+    genix = { inherit cli-apps services; };
   };
 }

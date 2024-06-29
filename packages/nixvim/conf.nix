@@ -4,43 +4,7 @@
     relativenumber = true;
     cursorline = true;
   };
-  keymaps = [
-    {
-      action = "<cmd>CHADopen<CR>";
-      key = "<leader>l";
-      options = {
-        desc = "Open CHADTree";
-      };
-    }
-    {
-      action = "<cmd>Neogit<CR>";
-      key = "<leader>g";
-      options = {
-        desc = "Git UI";
-      };
-    }
-    {
-      action = "<cmd>Oil<CR>";
-      key = "<leader>f";
-      options = {
-        desc = "Open oil";
-      };
-    }
-    {
-      action = "<cmd>MCunderCursor<CR>";
-      key = "<leader>c";
-      options = {
-        desc = "Start multicursor";
-      };
-    }
-    {
-      action = "<cmd>ToggleTerm<CR>";
-      key = "<leader>t";
-      options = {
-        desc = "Toggle terminal";
-      };
-    }
-  ];
+  keymaps = import ./keymaps.nix;
   globals = {
     mapleader = " ";
     maplocalleader = " ";

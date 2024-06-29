@@ -56,4 +56,5 @@ with lib.${namespace};
     hostName = hostname;
     useDHCP = lib.mkDefault true;
   };
+  system.stateVersion = "24.05";
 }
