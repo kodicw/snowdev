@@ -30,6 +30,9 @@ with lib.${namespace};
       xkb = enabled;
       stylix = enabled;
     };
+    cli-apps = {
+      netdiscover = enabled;
+    };
     bundles = {
       development = enabled;
     };
@@ -42,6 +45,7 @@ with lib.${namespace};
       openssh = enabled;
       cron = enabled;
       tailscale = enabled;
+      # netbox = enabled;
     };
     virtualisation = {
       docker = enabled;
