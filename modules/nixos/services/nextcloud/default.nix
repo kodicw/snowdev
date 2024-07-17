@@ -3,6 +3,7 @@ let
   cfg = config.${namespace}.services.nextcloud;
 in
 with lib;
+with lib.${namespace};
 {
   options = {
     ${namespace}.services.nextcloud = {
@@ -17,19 +18,41 @@ with lib;
         default = [ "localhost" ];
         description = "List of trusted domains for Nextcloud";
       };
+      email = mkOption {
+        type = types.str;
+        default = "admin@localhost";
+        description = "Email address for Let's Encrypt certificates";
+      };
     };
   };
 
   config = mkIf cfg.enable {
-    environment.etc."nextcloud-admin-pass".text = "password"; #FIX: need to add check for file and add manually
+
+    sops = {
+      defaultSopsFormat = "json";
+      defaultSopsFile = ../../../../secrets/secrets.json;
+      age.keyFile = /home/charles/.config/sops/age/keys.txt;
+      secrets.defaultPassword = {
+        owner = "nextcloud";
+      };
+    };
+
     services.nextcloud = {
       enable = true;
       package = pkgs.nextcloud28;
       hostName = cfg.hostName;
       settings.trusted_domains = cfg.trusted_domains;
       appstoreEnable = true;
-      config.adminpassFile = "/etc/nextcloud-admin-pass";
+      config.adminpassFile = "run/secrets/defaultPassword";
     };
+    services.nginx = nxHost cfg.hostName;
+    security.acme = {
+      acceptTerms = true;
+      certs = {
+        ${cfg.hostName}.email = cfg.email;
+      };
+    };
+    networking.firewall.allowedTCPPorts = [ 80 443 ];
   };
 }
 

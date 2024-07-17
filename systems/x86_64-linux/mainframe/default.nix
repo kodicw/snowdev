@@ -50,6 +50,8 @@ with lib.${namespace};
       openssh = enabled;
       cron = enabled;
       tailscale = enabled;
+      prometheus = enabled;
+      grafana = enabled;
     };
     virtualisation = {
       docker = enabled;

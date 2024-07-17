@@ -15,6 +15,7 @@ let
   };
   tools = {
     git = enabled;
+    mosh = enabled;
   };
   nix = {
     settings = enabled;

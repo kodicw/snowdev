@@ -8,7 +8,7 @@
 }:
 inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
   inherit pkgs;
-  module = import ./conf.nix;
+  module = import ./config.nix;
 }
 
  

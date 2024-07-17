@@ -12,9 +12,6 @@ with lib.${namespace};
       charles = enabled;
       root = enabled;
     };
-    desktop = {
-      gnome = enabled;
-    };
     system = {
       locale = enabled;
       fonts = enabled;
@@ -23,28 +20,17 @@ with lib.${namespace};
     };
     bundles = {
       common = enabled;
-      development = enabled;
     };
     services = {
       openssh = enabled;
-      xrdp = enabled;
       tailscale = {
         enable = true;
         tempAuthKey = true;
       };
     };
-    apps = {
-      gparted = enabled;
-
-    };
-    tools = {
-      iso-net-info = enabled;
-    };
   };
-
-
   networking = {
-    hostName = "iso-amazing";
+    hostName = "linode-server";
     networkmanager.enable = true;
   };
 }

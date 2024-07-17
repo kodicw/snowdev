@@ -23,6 +23,9 @@ with lib.${namespace}; {
     cli-apps = {
       burpsuite = enabled;
     };
+    apps = {
+      jami = enabled;
+    };
   };
   home.sessionVariables = {
     EDITOR = "nvim";

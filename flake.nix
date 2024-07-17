@@ -28,6 +28,7 @@
     deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
 
     ags.url = "github:Aylur/ags";
+    sops-nix.url = "github:Mic92/sops-nix";
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -54,18 +55,36 @@
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
+        sops-nix.nixosModules.sops
+        disko.nixosModules.disko
       ];
-
+      channels-config.allowUnfree = true;
+      channels-config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
       deploy = with inputs;
         {
+
           sshUser = "root";
-          remoteBuild = true;
+          remoteBuild = false;
           nodes = {
             node-nadia = {
               hostname = "node-nadia";
               profiles.system = {
                 user = "root";
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.node-nadia;
+              };
+            };
+            nixnode = {
+              hostname = "nixnode";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixnode;
+              };
+            };
+            zabbix-nixnode = {
+              hostname = "zabbix-nixnode";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zabbix-nixnode;
               };
             };
             rpi4 = {
@@ -77,8 +96,6 @@
             };
           };
         };
-
-      channels-config.allowUnfree = true;
     };
 }
 

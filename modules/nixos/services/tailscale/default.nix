@@ -11,11 +11,21 @@ in
 {
   options.${namespace}.services.tailscale = with types; {
     enable = mkEnableOption "Whether or not to configure Tailscale";
+    tempAuthKey = mkEnableOption "Whether or not to use a temporary auth key";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ tailscale ];
-    services.tailscale = enabled;
+    sops = {
+      defaultSopsFormat = "json";
+      defaultSopsFile = ../../../../secrets/secrets.json;
+      age.keyFile = /home/charles/.config/sops/age/keys.txt;
+      secrets.tailscaleAuthKey = mkIf cfg.tempAuthKey { };
+    };
+    services.tailscale = {
+      enable = true;
+      authKeyFile = mkIf cfg.tempAuthKey "/run/secrets/tailscaleAuthKey";
+    };
     networking = {
       firewall = {
         trustedInterfaces = [ config.services.tailscale.interfaceName ];

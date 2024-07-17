@@ -14,7 +14,6 @@ let
     gparted = enabled;
     libreoffice = enabled;
     stacer = enabled;
-    obsidian = enabled;
     spotify = enabled;
   };
   cli-apps = {

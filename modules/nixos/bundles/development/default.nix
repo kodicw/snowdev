@@ -20,6 +20,9 @@ let
     javascript = enabled;
     python = enabled;
     rust = enabled;
+    virtualenv = enabled;
+    sops = enabled;
+    pwgen = enabled;
   };
   cli-apps = { };
 in

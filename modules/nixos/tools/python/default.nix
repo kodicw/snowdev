@@ -21,9 +21,11 @@ in
         pandas
         pillow
         requests
+        typer
         flask
         selenium
         sqlalchemy
+        numpy
         ffmpeg-python
         openpyxl
         google-api-python-client

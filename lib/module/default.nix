@@ -7,4 +7,11 @@ with lib;
   disabled = {
     enable = false;
   };
+  nxHost = hostname: {
+    virtualHosts.${hostname} = {
+      forceSSL = true;
+      enableACME = true;
+    };
+  };
 }
+
