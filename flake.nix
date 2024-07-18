@@ -59,6 +59,7 @@
         disko.nixosModules.disko
       ];
       channels-config.allowUnfree = true;
+      channels-config.allowUnsupportedSystem = true;
       channels-config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
       deploy = with inputs;
         {
