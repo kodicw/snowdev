@@ -61,6 +61,9 @@ with lib.${namespace};
     apps = {
       firefox = enabled;
     };
+    cli-apps = {
+      rgbctl = enabled;
+    };
   };
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";

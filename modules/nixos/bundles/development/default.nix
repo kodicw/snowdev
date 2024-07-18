@@ -23,6 +23,7 @@ let
     virtualenv = enabled;
     sops = enabled;
     pwgen = enabled;
+    chromedriver = enabled;
   };
   cli-apps = { };
 in

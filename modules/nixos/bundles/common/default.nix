@@ -12,6 +12,8 @@ let
   cli-apps = {
     nushell = enabled;
     nixvim = enabled;
+    btop = enabled;
+    fastfetch = enabled;
   };
   tools = {
     git = enabled;

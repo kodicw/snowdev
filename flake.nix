@@ -73,11 +73,11 @@
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.node-nadia;
               };
             };
-            nixnode = {
+            nextcloud-nixnode = {
               hostname = "nixnode";
               profiles.system = {
                 user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nixnode;
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nextcloud-nixnode;
               };
             };
             zabbix-nixnode = {
@@ -85,6 +85,13 @@
               profiles.system = {
                 user = "root";
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zabbix-nixnode;
+              };
+            };
+            mainframe-nixnode = {
+              hostname = "zabbix-nixnode";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.mainframe-nixnode;
               };
             };
             rpi4 = {

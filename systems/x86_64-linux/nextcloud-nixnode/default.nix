@@ -6,7 +6,7 @@
 , ...
 }:
 let
-  hostname = "nixnode";
+  hostname = "nextcloud-nixnode";
 in
 with lib;
 with lib.${namespace};
