@@ -45,6 +45,8 @@ with lib.${namespace};
     };
   };
 
+  environment.systemPackages = with pkgs; [ chromedriver ];
+
   networking = {
     hostName = hostname;
   };

@@ -31,5 +31,6 @@ with lib.${namespace}; {
     EDITOR = "nvim";
     FLAKE = "/etc/nixos";
   };
+  home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "24.05";
 }

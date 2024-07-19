@@ -60,6 +60,7 @@ with lib.${namespace};
     };
     apps = {
       firefox = enabled;
+      kdeconnect = enabled;
     };
     cli-apps = {
       rgbctl = enabled;
