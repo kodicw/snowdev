@@ -26,16 +26,16 @@
       fsType = "vfat";
     };
 
-  fileSystems."/home/charles/.local/share/Steam/steamapps" =
+  fileSystems."/mnt/hdd" =
     {
       device = "/dev/disk/by-uuid/c74198f0-7e38-4cf1-99df-a08926182cc1";
       fsType = "ext4";
-      options = [ "users" "rw" ];
+      options = [ "user" "nofail" "exec" "async" "auto" "dev" "suid" ];
     };
   fileSystems."/mnt/ssd" = {
     device = "/dev/disk/by-uuid/c0c57757-6abd-4c7f-97c8-f34ba7fffe03";
     fsType = "ext4";
-    options = [ "users" "rw" ];
+    options = [ "user" "nofail" "exec" "async" "auto" "dev" "suid" ];
   };
 
 
