@@ -38,6 +38,7 @@ with lib.${namespace};
       gaming = enabled;
       development = enabled;
       hyprland = enabled;
+      networking = enabled;
     };
     hardware = {
       audio = enabled;

@@ -24,7 +24,9 @@ let
     sops = enabled;
     pwgen = enabled;
   };
-  cli-apps = { };
+  cli-apps = {
+    quickemu = enabled;
+  };
 in
 {
   options.${namespace}.bundles.development.enable = mkEnableOption "Enable Development Bundle";
