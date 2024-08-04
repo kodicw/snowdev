@@ -21,6 +21,13 @@
     };
   }
   {
+    action = "<cmd>\'<,\'>!mods 'make corrections to my notes'<CR>";
+    key = "<leader>s";
+    options = {
+      desc = "AI correct";
+    };
+  }
+  {
     action = "<cmd>Oil<CR>";
     key = "<leader>f";
     options = {

@@ -17,10 +17,27 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.virt-manager pkgs.win-virtio ];
+    boot.extraModprobeConfig = "options kvm_intel nested=1";
+    security.polkit.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      win-virtio
+      virt-manager
+      qemu_kvm
+      libguestfs
+      virt-manager
+    ];
+
+    systemd.services."libvirtd".reloadIfChanged = true; # reload vm configs from //services/*/libvirt/guests.nix
     virtualisation.libvirtd = {
       enable = true;
+      onBoot = "start";
+      onShutdown = "suspend";
+      allowedBridges = [ "br0" ];
+      # qemu.ovmf.enable = true;
+      # qemu.ovmf.packages = [ pkgs.OVMFFull.fd pkgs.pkgsCross.aarch64-multiplatform.OVMF.fd ];
       qemu.swtpm.enable = true;
+      qemu.swtpm.package = pkgs.swtpm;
     };
   };
 }

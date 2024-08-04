@@ -11,6 +11,8 @@ let
   cfg = config.${namespace}.bundles.hyprland;
   cli-apps = {
     ags = enabled;
+    gifpaper = enabled;
+    wl-clipboard-rs = enabled;
   };
   services = {
     hypridle = enabled;

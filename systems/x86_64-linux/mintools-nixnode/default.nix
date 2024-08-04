@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  hostname = "mainframe-nixnode";
+  hostname = "mintools-nixnode";
 in
 with lib;
 with lib.${namespace};
@@ -45,7 +45,7 @@ with lib.${namespace};
     };
   };
 
-  environment.systemPackages = with pkgs; [ chromedriver ];
+  environment.systemPackages = with pkgs; [ chromedriver google-chrome ];
 
   networking = {
     hostName = hostname;

@@ -17,7 +17,6 @@ in
 
   config =
     mkIf cfg.enable {
-
       programs.mosh = {
         enable = true;
         openFirewall = true;

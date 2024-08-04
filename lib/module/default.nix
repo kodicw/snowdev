@@ -13,5 +13,13 @@ with lib;
       enableACME = true;
     };
   };
+
+  mountDrive = { location, device }: {
+    ${location} = {
+      device = "${device}";
+      fsType = "ext4";
+      options = [ "user" "nofail" "exec" "async" "auto" "dev" "suid" ];
+    };
+  };
 }
 

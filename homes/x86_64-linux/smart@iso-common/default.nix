@@ -31,7 +31,6 @@ with lib.${namespace}; {
       enable = true;
       extraConfig = /* nushell */ ''
         $env.config.show_banner = false
-        ${pkgs.fastfetch}/bin/fastfetch
       '';
     };
   home.packages = with pkgs;

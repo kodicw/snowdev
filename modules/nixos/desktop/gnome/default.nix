@@ -11,7 +11,14 @@ with lib;
 with lib.${namespace};
 {
   options = {
-    ${namespace}.desktop.gnome.enable = mkEnableOption "Enable GNOME desktop environment";
+    ${namespace}.desktop.gnome = {
+      enable = mkEnableOption "Enable GNOME desktop environment";
+      excludePackages = mkOption {
+        type = types.listOf types.package;
+        default = [ ];
+        description = "List of packages to exclude from GNOME desktop environment";
+      };
+    };
   };
   config = mkIf cfg.enable {
     services.xserver = {
@@ -19,6 +26,7 @@ with lib.${namespace};
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
+    environment.gnome.excludePackages = cfg.excludePackages;
   };
 }
  

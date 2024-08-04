@@ -29,6 +29,7 @@ with lib;
           ];
           openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIADAqv0BNqlFhPHbHJ2qSFNzIZ9y29EgNrv9NLYCuboF kodi.walls_smartcomm@PC-40129"
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFv8kP8LWCSGweBHEl/AmxKMLat2Y2RWonKqDSO6RrWb charles@mainframe"
           ];
         };
       };

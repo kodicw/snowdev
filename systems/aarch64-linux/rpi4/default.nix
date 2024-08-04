@@ -29,6 +29,7 @@ with lib.${namespace};
       time = enabled;
       xkb = enabled;
       stylix = enabled;
+      share = enabled;
     };
     cli-apps = {
       netdiscover = enabled;

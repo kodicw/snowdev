@@ -7,14 +7,21 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.mongodb;
-  in
-  {
+in
+{
   options.${namespace}.services.mongodb = with types;
-  {
-  enable = mkEnableOption "Whether or not to configure mongodb";
-  };
+    {
+      enable = mkEnableOption "Whether or not to configure mongodb";
+      user = mkOption {
+        type = types.str;
+      default = "charles";
+      };
+    };
 
   config = mkIf cfg.enable {
-    services.mongodb.enable = true;
+    services.mongodb = {
+      enable = true;
+      user = cfg.user;
+    };
   };
-  }
+}

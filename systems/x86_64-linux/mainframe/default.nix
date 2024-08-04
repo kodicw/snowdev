@@ -31,10 +31,14 @@ with lib.${namespace};
       xkb = enabled;
       stylix = enabled;
     };
+    ai = {
+      ollama = enabled;
+    };
     desktop = {
       hyprland = enabled;
     };
     bundles = {
+      arr = enabled;
       gaming = enabled;
       development = enabled;
       hyprland = enabled;
@@ -51,8 +55,8 @@ with lib.${namespace};
       openssh = enabled;
       cron = enabled;
       tailscale = enabled;
-      prometheus = enabled;
-      grafana = enabled;
+      mongodb = enabled;
+      usb-automount = enabled;
     };
     virtualisation = {
       docker = enabled;
@@ -65,8 +69,11 @@ with lib.${namespace};
     };
     cli-apps = {
       rgbctl = enabled;
+      neovide = enabled;
     };
   };
+
+  environment.systemPackages = with pkgs; [ chromedriver ];
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 

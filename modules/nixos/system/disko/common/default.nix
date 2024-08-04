@@ -13,14 +13,20 @@ in
   options.${namespace}.system.disko.common = with types;
     {
       enable = mkEnableOption "Whether or not to enable";
-      sda = mkEnableOption "Whether or not to enable /dev/sda";
+      deviceName = mkOption {
+        type = types.str;
+        default = "sda";
+      };
+      deviceLocation = mkOption {
+        type = types.str;
+        default = "/dev/sda";
+      };
     };
-
   config =
     mkIf cfg.enable {
       disko.devices.disk = {
-        sda = mkIf cfg.sda {
-          device = "/dev/sda";
+        cfg.deviceName = {
+          device = cfg.deviceLocation;
           type = "disk";
           content = {
             type = "gpt";

@@ -18,6 +18,7 @@ in
     environment.systemPackages = with pkgs; [
       ruff
       (python311.withPackages (ps: with ps; [
+        html5lib
         pandas
         pillow
         requests

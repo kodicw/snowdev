@@ -15,6 +15,7 @@ let
     libreoffice = enabled;
     stacer = enabled;
     spotify = enabled;
+    kdenlive = enabled;
   };
   cli-apps = {
     kitty = enabled;

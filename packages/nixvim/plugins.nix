@@ -1,4 +1,20 @@
 {
+  ollama = {
+    enable = true;
+    model = "gemma:2b";
+    prompts = {
+      "Correct!" = {
+        action = "display_insert";
+        prompt = ''
+          Make corrections to my notes.
+          Only return corected notes.
+          Notes: ```md
+          $sel
+          ```
+        '';
+      };
+    };
+  };
   chadtree = {
     enable = true;
   };

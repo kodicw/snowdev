@@ -12,10 +12,13 @@ let
   tools = {
     lldpd = enabled;
   };
+  services = {
+    mullvad-vpn = enabled;
+  };
 in
 {
   options.${namespace}.bundles.networking.enable = mkEnableOption "common";
   config = mkIf cfg.enable {
-    genix = { inherit tools; };
+    genix = { inherit tools services; };
   };
 }

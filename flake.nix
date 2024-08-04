@@ -65,7 +65,7 @@
         {
 
           sshUser = "root";
-          remoteBuild = false;
+          remoteBuild = true;
           nodes = {
             node-nadia = {
               hostname = "node-nadia";
@@ -92,7 +92,7 @@
               hostname = "zabbix-nixnode";
               profiles.system = {
                 user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.mainframe-nixnode;
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.mintools-nixnode;
               };
             };
             rpi4 = {
