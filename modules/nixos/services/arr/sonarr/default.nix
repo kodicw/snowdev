@@ -17,13 +17,14 @@ in
         default = "/var/lib/sonarr";
         description = "The directory where sonarr will store its data";
       };
-
     };
 
   config = mkIf cfg.enable {
     services.sonarr = {
-      enable = mkForce true;
+      enable = true;
       openFirewall = true;
+      user = "arr";
+      group = "arr";
       dataDir = cfg.dataDir;
     };
   };

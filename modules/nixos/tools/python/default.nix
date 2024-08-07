@@ -31,6 +31,7 @@ in
         openpyxl
         google-api-python-client
         pyquery
+        fabric
         feedparser
         langchain
         beautifulsoup4

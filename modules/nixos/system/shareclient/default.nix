@@ -11,7 +11,7 @@ with lib;
       enable = mkEnableOption "Enable share";
       device = mkOption {
         type = types.str;
-        default = "192.168.1.16:/share";
+        default = "100.80.182.14:/share";
         description = "NFS share device";
         example = "293.168.1.16:/share";
       };
@@ -19,7 +19,7 @@ with lib;
   };
   config = mkIf cfg.enable {
     fileSystems."/mnt/share" = {
-      device = "192.168.1.16:/share";
+      device = cfg.device;
       fsType = "nfs";
       options = [ "x-systemd.automount" "x-systemd.idle-timeout=600" "noauto" ];
     };

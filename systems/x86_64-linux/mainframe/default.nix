@@ -30,6 +30,7 @@ with lib.${namespace};
       time = enabled;
       xkb = enabled;
       stylix = enabled;
+      shareclient = enabled;
     };
     ai = {
       ollama = enabled;
@@ -38,7 +39,6 @@ with lib.${namespace};
       hyprland = enabled;
     };
     bundles = {
-      arr = enabled;
       gaming = enabled;
       development = enabled;
       hyprland = enabled;
@@ -55,8 +55,8 @@ with lib.${namespace};
       openssh = enabled;
       cron = enabled;
       tailscale = enabled;
-      mongodb = enabled;
       usb-automount = enabled;
+      jellyfin = enabled;
     };
     virtualisation = {
       docker = enabled;
@@ -81,6 +81,7 @@ with lib.${namespace};
     hostName = hostname;
     useDHCP = lib.mkDefault true;
   };
+
   services.xserver = {
     xrandrHeads = [
       {

@@ -12,7 +12,9 @@ let
   services.arr = {
     sonarr = enabled;
     radarr = enabled;
-    transmission = enabled;
+    prowlarr = enabled;
+    sabnzbd = enabled;
+    users = enabled;
   };
 in
 {

@@ -12,8 +12,7 @@ with lib.${namespace};
   imports = with inputs.nixos-hardware.nixosModules; [
     # (modulesPath + "/installer/scan/not-detected.nix")
     # (modulesPath + "/installer/sd-card/sd-image-aarch64.nix")
-    raspberry-pi-4
-    ./hardware.nix
+    # ./hardware.nix
   ];
   genix = {
     techstack = {
@@ -66,7 +65,7 @@ with lib.${namespace};
       generic-extlinux-compatible.enable = true;
     };
   };
-  networking.hostName = "rpi4";
+  networking.hostName = "sd-image-khadas";
   hardware.enableRedistributableFirmware = true;
   system.stateVersion = "23.11";
 }

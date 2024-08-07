@@ -4,7 +4,7 @@
     model = "gemma:2b";
     prompts = {
       "Correct!" = {
-        action = "display_insert";
+        action = "replace";
         prompt = ''
           Make corrections to my notes.
           Only return corected notes.

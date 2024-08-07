@@ -21,9 +21,10 @@ in
     };
   config = mkIf cfg.enable {
     services.radarr = {
-      enable = mkForce true;
+      enable = true;
+      user = "arr";
+      group = "arr";
       openFirewall = true;
-      dataDir = "${cfg.dataDir}";
     };
   };
 }

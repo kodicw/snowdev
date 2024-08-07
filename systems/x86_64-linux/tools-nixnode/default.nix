@@ -5,7 +5,7 @@
 , ...
 }:
 let
-  hostname = "mintools-nixnode";
+  hostname = "tools-nixnode";
 in
 with lib;
 with lib.${namespace};

@@ -15,6 +15,9 @@ with lib.${namespace}; let
   };
 
   config = mkIf cfg.enable {
-    services.jellyfin.enable = true;
+    services.jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
   };
   }

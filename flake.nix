@@ -88,11 +88,18 @@
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zabbix-nixnode;
               };
             };
-            mainframe-nixnode = {
+            tools-nixnode = {
               hostname = "zabbix-nixnode";
               profiles.system = {
                 user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.mintools-nixnode;
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.tools-nixnode;
+              };
+            };
+            exit-nixnode = {
+              hostname = "zabbix-nixnode";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.exit-nixnode;
               };
             };
             rpi4 = {
@@ -100,6 +107,13 @@
               profiles.system = {
                 user = "root";
                 path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rpi4;
+              };
+            };
+            sd-image-khadas = {
+              hostname = "khadas";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.sd-image-khadas;
               };
             };
           };

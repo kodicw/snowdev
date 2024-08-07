@@ -12,6 +12,14 @@ in
   options.${namespace}.services.tailscale = with types; {
     enable = mkEnableOption "Whether or not to configure Tailscale";
     tempAuthKey = mkEnableOption "Whether or not to use a temporary auth key";
+    upFlags = mkOption {
+      type = types.listOf types.str;
+      default = [ ];
+    };
+    useRoutingFeatures = mkOption {
+      type = types.str;
+      default = "none";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -25,6 +33,8 @@ in
     services.tailscale = {
       enable = true;
       authKeyFile = mkIf cfg.tempAuthKey "/run/secrets/tailscaleAuthKey";
+      extraUpFlags = cfg.upFlags;
+      useRoutingFeatures = cfg.useRoutingFeatures;
     };
     networking = {
       firewall = {
