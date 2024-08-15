@@ -6,16 +6,16 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.services.arr.sabnzbd;
+  cfg = config.${namespace}.services.arr.deluge;
 in
 {
-  options.${namespace}.services.arr.sabnzbd = with types;
+  options.${namespace}.services.arr.deluge = with types;
     {
-      enable = mkEnableOption "Whether or not to configure sabnzbd";
+      enable = mkEnableOption "Whether or not to configure deluge";
     };
 
   config = mkIf cfg.enable {
-    services.sabnzbd = {
+    services.deluge = {
       enable = true;
       user = "arr";
       group = "arr";

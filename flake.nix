@@ -10,7 +10,7 @@
     stylix.url = "github:danth/stylix";
 
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.nixpkgs.follows = "unstable";
 
     nix-software-center.url = "github:snowfallorg/nix-software-center";
 

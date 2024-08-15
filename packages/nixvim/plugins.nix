@@ -23,6 +23,11 @@
     enable = true;
   };
   noice.enable = true;
+  # magma-nvim.enable = true; # new plugins start here
+  # navbuddy.enable = true;
+  # neoclip.enable = true;
+  # neorg.enable = true;
+  # friendly-snippets.enable = true; # new plugins end here
   todo-comments.enable = true;
   toggleterm.enable = true;
   neogit.enable = true;

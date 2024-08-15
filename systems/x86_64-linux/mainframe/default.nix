@@ -57,6 +57,7 @@ with lib.${namespace};
       tailscale = enabled;
       usb-automount = enabled;
       jellyfin = enabled;
+      # tt-rss = enabled;
     };
     virtualisation = {
       docker = enabled;
@@ -66,6 +67,7 @@ with lib.${namespace};
     apps = {
       firefox = enabled;
       kdeconnect = enabled;
+      bruno = enabled;
     };
     cli-apps = {
       rgbctl = enabled;

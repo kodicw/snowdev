@@ -4,10 +4,10 @@
 , namespace
 , system
 , inputs
+, channels
 , ...
 }:
-inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
-  inherit pkgs;
+inputs.nixvim.legacyPackages."${system}".makeNixvimWithModule {
   module = import ./config.nix;
 }
 
