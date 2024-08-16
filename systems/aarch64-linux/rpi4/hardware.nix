@@ -21,7 +21,7 @@ lib.${namespace};
   fileSystems."/mnt/wdhdd" = {
     device = "/dev/sda1";
     fsType = "ext4";
-    options = [ "bind" "user" "nofail" "exec" "async" "auto" "dev" "suid" ];
+    options = [ "user" "nofail" "exec" "async" "auto" "dev" "suid" ];
   };
   swapDevices = [ ];
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

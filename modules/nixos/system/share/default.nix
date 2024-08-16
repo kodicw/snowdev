@@ -27,6 +27,7 @@ with lib;
     services.nfs.server.enable = true;
     services.nfs.server.exports = cfg.exports;
     fileSystems."/export/share" = {
+      depends = [ "/mnt/wdhdd" ];
       device = cfg.device;
       options = [ "bind" ];
     };

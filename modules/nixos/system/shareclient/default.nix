@@ -11,7 +11,7 @@ with lib;
       enable = mkEnableOption "Enable share";
       device = mkOption {
         type = types.str;
-        default = "100.80.182.14:/share";
+        default = "100.119.232.82:/share";
         description = "NFS share device";
         example = "293.168.1.16:/share";
       };
