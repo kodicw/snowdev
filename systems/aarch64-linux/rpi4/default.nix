@@ -29,7 +29,7 @@ with lib.${namespace};
       time = enabled;
       xkb = enabled;
       stylix = enabled;
-      share = enabled;
+      # share = enabled;
     };
     bundles = {
       development = enabled;
