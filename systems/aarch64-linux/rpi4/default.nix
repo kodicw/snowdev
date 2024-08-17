@@ -32,13 +32,14 @@ with lib.${namespace};
       share = enabled;
     };
     bundles = {
+      development = enabled;
       arr = enabled;
     };
-    # hardware = {
-    #   audio = enabled;
-    #   bluetooth = enabled;
-    #   networkmanager = enabled;
-    # };
+    hardware = {
+      audio = enabled;
+      bluetooth = enabled;
+      networkmanager = enabled;
+    };
     services = {
       openssh = enabled;
       cron = enabled;
@@ -48,11 +49,11 @@ with lib.${namespace};
         upFlags = [ "--exit-node=146.70.211.70" ];
       };
     };
-    # virtualisation = {
-    #   docker = enabled;
-    #   virt-manager = enabled;
-    #   vmVariant = enabled;
-    # };
+    virtualisation = {
+      docker = enabled;
+      virt-manager = enabled;
+      vmVariant = enabled;
+    };
   };
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
