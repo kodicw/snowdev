@@ -4,7 +4,7 @@ flake-init template:
 add:
     git add *
 check: add
-    nix flake check
+    nix flake check --impure
 vm MACHINE: add
     nixos-rebuild build-vm --flake .#{{MACHINE}} --impure 
 rebuild: add

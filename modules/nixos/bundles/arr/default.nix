@@ -14,7 +14,6 @@ let
     radarr = enabled;
     prowlarr = enabled;
     sabnzbd = enabled;
-    deluge = enabled;
     users = enabled;
   };
 in

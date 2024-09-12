@@ -10,9 +10,9 @@ with lib.${namespace};
 let
   cfg = config.${namespace}.bundles.common;
   cli-apps = {
-    nushell = enabled;
     nixvim = enabled;
     btop = enabled;
+    nushell = enabled;
     fastfetch = enabled;
   };
   tools = {

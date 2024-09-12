@@ -17,7 +17,6 @@ in
   config = mkIf cfg.enable {
     services.kasmweb = {
       enable = true;
-      listenPort = 8080;
     };
   };
 }

@@ -30,7 +30,10 @@ with lib.${namespace};
       time = enabled;
       xkb = enabled;
       stylix = enabled;
-      shareclient = enabled;
+      shareclient = {
+        enable = true;
+        device = "100.87.112.12:/share";
+      };
     };
     ai = {
       ollama = enabled;
@@ -53,6 +56,7 @@ with lib.${namespace};
     services = {
       openrgb = enabled;
       openssh = enabled;
+      searx = enabled;
       cron = enabled;
       tailscale = enabled;
       usb-automount = enabled;
@@ -72,6 +76,7 @@ with lib.${namespace};
     cli-apps = {
       rgbctl = enabled;
       neovide = enabled;
+      adb = enabled;
     };
   };
 

@@ -16,6 +16,8 @@ let
     stacer = enabled;
     spotify = enabled;
     kdenlive = enabled;
+    proton-pass = enabled;
+    protonmail-desktop = enabled;
   };
   cli-apps = {
     kitty = enabled;

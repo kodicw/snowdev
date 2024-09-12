@@ -30,10 +30,11 @@
     ags.url = "github:Aylur/ags";
     sops-nix.url = "github:Mic92/sops-nix";
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs:
@@ -57,6 +58,7 @@
         stylix.nixosModules.stylix
         sops-nix.nixosModules.sops
         disko.nixosModules.disko
+        nixos-cosmic.nixosModules.default
       ];
       channels-config.allowUnfree = true;
       channels-config.allowUnsupportedSystem = true;
@@ -88,6 +90,14 @@
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zabbix-nixnode;
               };
             };
+
+            hp-server = {
+              hostname = "hp-server";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hp-server;
+              };
+            };
             tools-nixnode = {
               hostname = "zabbix-nixnode";
               profiles.system = {
@@ -100,6 +110,20 @@
               profiles.system = {
                 user = "root";
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.exit-nixnode;
+              };
+            };
+            pix-server = {
+              hostname = "pix-server";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.pix-server;
+              };
+            };
+            docker-server = {
+              hostname = "docker-server";
+              profiles.system = {
+                user = "root";
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.docker-server;
               };
             };
             rpi4 = {

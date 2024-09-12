@@ -25,14 +25,19 @@ with lib.${namespace};
     };
     system = {
       locale = enabled;
-      fonts = enabled;
       time = enabled;
       xkb = enabled;
-      stylix = enabled;
-      # share = enabled;
+      rpi4 = enabled;
+      share = {
+        enable = true;
+        exports = ''
+          /export        192.168.1.13(rw,fsid=0,no_subtree_check) 100.68.109.59(rw,fsid=0,no_subtree_check) 
+          /export/share  192.168.1.13(rw,nohide,insecure,no_subtree_check) 100.68.109.59(rw,nohide,insecure,no_subtree_check)
+        '';
+        device = "/mnt/wdhdd";
+      };
     };
     bundles = {
-      development = enabled;
       arr = enabled;
     };
     hardware = {
@@ -42,6 +47,7 @@ with lib.${namespace};
     };
     services = {
       openssh = enabled;
+      jellyfin = enabled;
       cron = enabled;
       jellyseerr = enabled;
       tailscale = {
@@ -51,19 +57,8 @@ with lib.${namespace};
     };
     virtualisation = {
       docker = enabled;
-      virt-manager = enabled;
-      vmVariant = enabled;
-    };
-  };
-  boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
-    loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = true;
     };
   };
   networking.hostName = "rpi4";
-  hardware.enableRedistributableFirmware = true;
   system.stateVersion = "23.11";
 }

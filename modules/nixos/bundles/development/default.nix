@@ -18,6 +18,7 @@ let
     go = enabled;
     cc = enabled;
     javascript = enabled;
+    nim = enabled;
     python = enabled;
     rust = enabled;
     virtualenv = enabled;

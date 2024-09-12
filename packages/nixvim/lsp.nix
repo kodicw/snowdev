@@ -6,7 +6,9 @@
       autostart = true;
       filetypes = [ "nu" "conf" ];
     };
-
+    nimls = {
+      enable = true;
+    };
     html = {
       enable = true;
       autostart = true;

@@ -20,6 +20,7 @@ in
       user = "arr";
       group = "arr";
       openFirewall = true;
+      web.enable = true;
     };
   };
 }

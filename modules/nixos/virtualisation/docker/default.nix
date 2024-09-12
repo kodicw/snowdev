@@ -20,6 +20,7 @@ in
     virtualisation.docker.enable = true;
     environment.systemPackages = with pkgs; [
       lazydocker
+      docker-compose
       docker
     ];
   };
