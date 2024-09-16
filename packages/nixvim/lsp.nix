@@ -1,5 +1,6 @@
 {
   enable = true;
+  inlayHints = true;
   servers = {
     nushell = {
       enable = true;

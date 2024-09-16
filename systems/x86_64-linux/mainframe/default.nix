@@ -56,7 +56,6 @@ with lib.${namespace};
     services = {
       openrgb = enabled;
       openssh = enabled;
-      searx = enabled;
       cron = enabled;
       tailscale = enabled;
       usb-automount = enabled;

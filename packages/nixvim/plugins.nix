@@ -1,4 +1,6 @@
 {
+  lsp-lines = { enable = true; };
+  helm = { enable = true; };
   ollama = {
     enable = true;
     model = "gemma:2b";

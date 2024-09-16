@@ -1,4 +1,7 @@
 {
+  imports = [
+    ./treesitter.nix
+  ];
   opts = {
     number = true;
     relativenumber = true;
