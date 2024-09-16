@@ -13,6 +13,11 @@ with lib.${namespace};
   imports = [
     ./hardware.nix
   ];
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/vda";
+    useOSProber = true;
+  };
   genix = {
     techstack = {
       workstation = enabled;
@@ -24,7 +29,6 @@ with lib.${namespace};
       root = enabled;
     };
     system = {
-      boot.grub = enabled;
       locale = enabled;
       fonts = enabled;
       time = enabled;
