@@ -83,11 +83,11 @@
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nextcloud-nixnode;
               };
             };
-            zabbix-nixnode = {
-              hostname = "zabbix-nixnode";
+            traefik-nixnode = {
+              hostname = "traefik-nixnode";
               profiles.system = {
                 user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zabbix-nixnode;
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.traefik-nixnode;
               };
             };
 
@@ -99,14 +99,14 @@
               };
             };
             tools-nixnode = {
-              hostname = "zabbix-nixnode";
+              hostname = "traefik-nixnode";
               profiles.system = {
                 user = "root";
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.tools-nixnode;
               };
             };
             exit-nixnode = {
-              hostname = "zabbix-nixnode";
+              hostname = "traefik-nixnode";
               profiles.system = {
                 user = "root";
                 path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.exit-nixnode;

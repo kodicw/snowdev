@@ -31,8 +31,8 @@ with lib.${namespace};
       share = {
         enable = true;
         exports = ''
-          /export        192.168.1.13(rw,fsid=0,no_subtree_check) 100.68.109.59(rw,fsid=0,no_subtree_check)  
-          /export/share  192.168.1.13(rw,nohide,insecure,no_subtree_check) 100.68.109.59(rw,nohide,insecure,no_subtree_check)
+          /export        192.168.1.13(rw,fsid=0,no_subtree_check) 100.68.109.59(rw,fsid=0,no_subtree_check) 100.64.17.107(rw,fsid=0,no_subtree_check) 
+          /export/share  192.168.1.13(rw,nohide,insecure,no_subtree_check) 100.68.109.59(rw,nohide,insecure,no_subtree_check) 100.64.17.107(rw,nohide,insecure,no_subtree_check)
         '';
         device = "/mnt/wdhdd";
       };
