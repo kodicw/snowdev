@@ -33,7 +33,13 @@ with lib.${namespace};
       xkb = enabled;
     };
     desktop.hyprland = enabled;
-    bundles.hyprland = enabled;
+    bundles = {
+      development = enabled;
+      hyprland = enabled;
+      common = enabled;
+      desktop = enabled;
+      networking = enabled;
+    };
     hardware = {
       audio = enabled;
       bluetooth = enabled;
@@ -52,6 +58,7 @@ with lib.${namespace};
   };
   # Disable the lid switch for laptops
   # useful for when you have a laptop and you want to close the lid without the system suspending
+  environment.systemPackages = with pkgs; [ genix.zen-browser ];
   services.logind.lidSwitch = "ignore";
 
   networking = {
