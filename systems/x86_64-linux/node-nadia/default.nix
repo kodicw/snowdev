@@ -14,9 +14,10 @@ with lib.${namespace};
   imports = [
     ./hardware.nix
   ];
+  systemd.services.NetworkManager-wait-online.enable = false;
   genix = {
     techstack = {
-      server = enabled;
+      workstation = enabled;
     };
     user = {
       charles = enabled;
@@ -31,6 +32,8 @@ with lib.${namespace};
       time = enabled;
       xkb = enabled;
     };
+    desktop.hyprland = enabled;
+    bundles.hyprland = enabled;
     hardware = {
       audio = enabled;
       bluetooth = enabled;
@@ -39,10 +42,6 @@ with lib.${namespace};
     services = {
       openssh = enabled;
       tailscale = enabled;
-      adguardHome = enabled;
-      homepage = enabled;
-      soft-serve = enabled;
-      photoprism = enabled;
       ollama = enabled;
     };
     virtualisation = {
@@ -57,14 +56,13 @@ with lib.${namespace};
 
   networking = {
     hostName = hostname;
-    networkmanager.enable = true;
     interfaces = {
       enp4s0.ipv4.addresses = [{
-        address = "192.168.1.12";
+        address = "192.168.1.121";
         prefixLength = 24;
       }];
       wlp5s0.ipv4.addresses = [{
-        address = "192.168.1.12";
+        address = "192.168.1.121";
         prefixLength = 24;
       }];
     };
