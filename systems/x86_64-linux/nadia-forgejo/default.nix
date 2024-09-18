@@ -50,5 +50,6 @@ with lib.${namespace};
     hostName = hostname;
     useDHCP = lib.mkDefault true;
   };
+    networking.firewall.allowedTCPPorts = [ 3000 ];
   system.stateVersion = "24.05";
 }

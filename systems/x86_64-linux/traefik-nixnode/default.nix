@@ -59,7 +59,26 @@ with lib.${namespace};
             loadBalancer = {
               servers = [
                 {
-                  url = "https://nadia-forgejo:3000";
+                  url = "http://nadia-forgejo:3000";
+                }
+              ];
+            };
+          };
+        };
+      };
+      websecure = {
+        routers = {
+          router1 = {
+            rule = "Host(`git.declarativepenguin.com`)";
+            service = "forgejo";
+          };
+        };
+        services = {
+          forgejo = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://nadia-forgejo:3000";
                 }
               ];
             };
@@ -68,6 +87,7 @@ with lib.${namespace};
       };
     };
   };
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking = {
     hostName = hostname;
   };
