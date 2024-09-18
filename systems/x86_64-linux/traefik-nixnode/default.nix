@@ -34,59 +34,66 @@ with lib.${namespace};
       tailscale = enabled;
     };
   };
-  services.traefik = {
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "kodicw@gmail.com";
+  };
+  services.nginx = {
     enable = true;
-    staticConfigOptions = {
-      entryPoints = {
-        http = {
-          address = ":80";
-        };
-        websecure = {
-          address = ":443";
-        };
-      };
-    };
-    dynamicConfigOptions = {
-      http = {
-        routers = {
-          router1 = {
-            rule = "Host(`git.declarativepenguin.com`)";
-            service = "forgejo";
-          };
-        };
-        services = {
-          forgejo = {
-            loadBalancer = {
-              servers = [
-                {
-                  url = "http://nadia-forgejo:3000";
-                }
-              ];
-            };
-          };
-        };
-      };
-      websecure = {
-        routers = {
-          router1 = {
-            rule = "Host(`git.declarativepenguin.com`)";
-            service = "forgejo";
-          };
-        };
-        services = {
-          forgejo = {
-            loadBalancer = {
-              servers = [
-                {
-                  url = "http://nadia-forgejo:3000";
-                }
-              ];
-            };
-          };
-        };
-      };
+    virtualHosts."git.declarativepenguin.com" = {
+      forceSSL = true;
+      enableACME = true;
+      extraConfig = ''
+        client_max_body_size 512M;
+      '';
+      locations."/".proxyPass = "http://nadia-forgejo:3000";
     };
   };
+
+  #   enable = true;
+  #   staticConfigOptions = {
+  #     entryPoints = {
+  #       http = {
+  #         address = ":80";
+  #       };
+  #       websecure = {
+  #         address = ":443";
+  #       };
+  #     };
+  #   };
+  #   dynamicConfigOptions = {
+  #     http.routers.git = {
+  #       rule = "Host(`git.declarativepenguin.com`)";
+  #       service = "forgejo";
+  #     };
+  #     services.forgejo.loadBalancer = {
+  #       servers = [
+  #         {
+  #           url = "http://nadia-forgejo:3000";
+  #         }
+  #       ];
+  #     };
+  #     websecure = {
+  #       routers = {
+  #         gitsecure = {
+  #           rule = "Host(`git.declarativepenguin.com`)";
+  #           service = "forgejo";
+  #         };
+  #       };
+  #       services = {
+  #         forgejo = {
+  #           loadBalancer = {
+  #             servers = [
+  #               {
+  #                 url = "http://nadia-forgejo:3000";
+  #               }
+  #             ];
+  #           };
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   networking = {
     hostName = hostname;

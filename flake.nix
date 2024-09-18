@@ -91,11 +91,11 @@
               };
             };
 
-            hp-server = {
-              hostname = "hp-server";
+            nadia-forgejo = {
+              hostname = "nadia-forgejo";
               profiles.system = {
                 user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.hp-server;
+                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nadia-forgejo;
               };
             };
             tools-nixnode = {

@@ -10,16 +10,6 @@ let
   cfg = config.${namespace}.services.forgejo;
 in
 {
-  # services.nginx = {
-  #   virtualHosts.${cfg.settings.server.DOMAIN} = {
-  #     forceSSL = true;
-  #     enableACME = true;
-  #     extraConfig = ''
-  #       client_max_body_size 512M;
-  #     '';
-  #     locations."/".proxyPass = "http://localhost:${toString srv.HTTP_PORT}";
-  #   };
-  # };
   options.${namespace}.services.forgejo = {
     enable = mkEnableOption "ForgeJo";
   };
@@ -62,5 +52,16 @@ in
       #   mode = "400";
       #   owner = "forgejo";
     };
+    sops = {
+      defaultSopsFormat = "json";
+      defaultSopsFile = ../../../../secrets/secrets.json;
+      age.keyFile = /home/charles/.config/sops/age/keys.txt;
+      secrets.forgejoPassword.owner = "forgejo";
+    };
+    systemd.services.forgejo.preStart = ''
+      admin="${lib.getExe config.services.forgejo.package} admin user"
+      $admin create --admin --email "" --username admin --password "$(tr -d '\n' < $
+      {config.sops.secrets.forgejoPassword.path})" || true
+    '';
   };
 }
