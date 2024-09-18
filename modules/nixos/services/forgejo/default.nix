@@ -34,7 +34,7 @@ in
         server = {
           DOMAIN = "git.declarativepenguin.com";
           # You need to specify this to remove the port from URLs in the web UI.
-          ROOT_URL = "https://git.declarativepenguin.com/";
+          ROOT_URL = "http://git.declarativepenguin.com/";
           HTTP_PORT = 3000;
         };
         # You can temporarily allow registration to create an admin user.
