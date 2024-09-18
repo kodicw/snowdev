@@ -7,14 +7,16 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.ollama;
-  in
-  {
+in
+{
   options.${namespace}.services.ollama = with types;
-  {
-  enable = mkEnableOption "Whether or not to configure ollama";
-  };
+    {
+      enable = mkEnableOption "Whether or not to configure ollama";
+    };
 
   config = mkIf cfg.enable {
-    services.ollama.enable = true;
+    services.ollama = {
+      enable = true;
+    };
   };
-  }
+}

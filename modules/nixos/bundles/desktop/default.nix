@@ -23,7 +23,7 @@ let
     kitty = enabled;
   };
   desktop = {
-    plasma = enabled;
+    cosmic = enabled;
   };
 in
 {

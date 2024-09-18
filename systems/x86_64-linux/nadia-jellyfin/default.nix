@@ -40,13 +40,11 @@ with lib.${namespace};
     hardware = {
       audio = enabled;
       bluetooth = enabled;
-      nvidia = enabled;
       networkmanager = enabled;
     };
     services = {
       openssh = enabled;
       tailscale = enabled;
-      usb-automount = enabled;
       jellyfin = enabled;
     };
   };

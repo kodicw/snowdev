@@ -14,11 +14,7 @@ with lib.${namespace};
   imports = [
     ./hardware.nix
   ];
-  systemd.services.NetworkManager-wait-online.enable = false;
   genix = {
-    techstack = {
-      workstation = enabled;
-    };
     user = {
       charles = enabled;
       root = enabled;
@@ -33,6 +29,7 @@ with lib.${namespace};
       xkb = enabled;
     };
     desktop.hyprland = enabled;
+    desktop.cosmic = enabled;
     bundles = {
       development = enabled;
       hyprland = enabled;

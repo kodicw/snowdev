@@ -1,6 +1,9 @@
 { pkgs, ... }: {
   extraPlugins = with pkgs.vimPlugins; [
     nim-vim
+    vim-dadbod
+    vim-dadbod-ui
+    vim-dadbod-completion
   ];
 
   plugins.treesitter = {

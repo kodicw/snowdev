@@ -2,11 +2,10 @@
 , pkgs
 , modulesPath
 , namespace
-, channels
 , ...
 }:
 let
-  hostname = "nadia-forgejo";
+  hostname = "nadia-ollama";
 in
 with lib;
 with lib.${namespace};
@@ -32,7 +31,6 @@ with lib.${namespace};
       fonts = enabled;
       time = enabled;
       xkb = enabled;
-      stylix = enabled;
     };
     hardware = {
       audio = enabled;
@@ -42,7 +40,7 @@ with lib.${namespace};
     services = {
       openssh = enabled;
       tailscale = enabled;
-      forgejo = enabled;
+      ollama = enabled;
     };
   };
 
@@ -50,6 +48,5 @@ with lib.${namespace};
     hostName = hostname;
     useDHCP = lib.mkDefault true;
   };
-  networking.firewall.allowedTCPPorts = [ 3000 ];
   system.stateVersion = "24.05";
 }

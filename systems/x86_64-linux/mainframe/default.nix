@@ -79,6 +79,7 @@ with lib.${namespace};
     };
   };
 
+
   environment.systemPackages = with pkgs; [ chromedriver ];
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
