@@ -19,6 +19,8 @@ in
       ruff
       (python311.withPackages (ps: with ps; [
         html5lib
+        playwright
+        # pyinstaller
         pandas
         pillow
         requests
@@ -36,7 +38,6 @@ in
         langchain
         beautifulsoup4
         rich
-        shodan
         openai
         python-lsp-server
       ]))

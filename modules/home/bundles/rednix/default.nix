@@ -1,6 +1,5 @@
 { pkgs
 , config
-, options
 , lib
 , namespace
 , ...
@@ -15,5 +14,10 @@ in
   options.${namespace}.bundles.rednix.enable = mkEnableOption "rednix";
   config = mkIf cfg.enable {
     genix = { inherit apps; };
+    home.packages = with pkgs; [
+      (python311.withPackages (ps: with ps; [
+        shodan
+      ]))
+    ];
   };
 }

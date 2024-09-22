@@ -83,6 +83,7 @@ with lib.${namespace};
   environment.systemPackages = with pkgs; [ chromedriver ];
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   networking = {
     hostName = hostname;

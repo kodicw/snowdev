@@ -1,19 +1,17 @@
 { lib
 , pkgs
-, modulesPath
 , namespace
 , ...
 }:
 let
   hostname = "spectre";
 in
-with lib;
-with lib.${namespace};
 {
   imports = [
     ./hardware.nix
   ];
-  genix = {
+
+  ${namespace} = with lib.${namespace};{
     user = {
       charles = enabled;
       root = enabled;
@@ -24,35 +22,26 @@ with lib.${namespace};
       fonts = enabled;
       time = enabled;
       xkb = enabled;
-      stylix = enabled;
-    };
-    ai = {
-      ollama = enabled;
     };
     desktop = {
-      cosmic = enabled;
+      hyprland = enabled;
     };
     bundles = {
       development = enabled;
       common = enabled;
+      hyprland = enabled;
       desktop = enabled;
       networking = enabled;
     };
     hardware = {
       audio = enabled;
       bluetooth = enabled;
-      networkmanager = enabled;
     };
     services = {
       openssh = enabled;
       cron = enabled;
       tailscale = enabled;
       usb-automount = enabled;
-    };
-    virtualisation = {
-      docker = enabled;
-      virt-manager = enabled;
-      vmVariant = enabled;
     };
     apps = {
       kdeconnect = enabled;
@@ -63,11 +52,11 @@ with lib.${namespace};
     };
   };
   environment.systemPackages = with pkgs; [ chromedriver genix.zen-browser ];
+  systemd.services.NetworkManager-wait-online.enable = false;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   networking = {
     hostName = hostname;
     useDHCP = lib.mkDefault true;
   };
-
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

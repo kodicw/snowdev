@@ -67,80 +67,45 @@
         {
 
           sshUser = "root";
-          remoteBuild = true;
-          nodes = {
-            node-nadia = {
-              hostname = "node-nadia";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.node-nadia;
+          remoteBuild = false;
+          nodes =
+            {
+              node-nadia = {
+                hostname = "node-nadia";
+                profiles.system = {
+                  user = "root";
+                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.node-nadia;
+                };
+              };
+              traefik-nixnode = {
+                hostname = "traefik-nixnode";
+                profiles.system = {
+                  user = "root";
+                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.traefik-nixnode;
+                };
+              };
+              nadia-forgejo = {
+                hostname = "nadia-forgejo";
+                profiles.system = {
+                  user = "root";
+                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nadia-forgejo;
+                };
+              };
+              spectre = {
+                hostname = "spectre";
+                profiles.system = {
+                  user = "root";
+                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.spectre;
+                };
+              };
+              rpi4 = {
+                hostname = "rpi4";
+                profiles.system = {
+                  user = "root";
+                  path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rpi4;
+                };
               };
             };
-            nextcloud-nixnode = {
-              hostname = "nixnode";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nextcloud-nixnode;
-              };
-            };
-            traefik-nixnode = {
-              hostname = "traefik-nixnode";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.traefik-nixnode;
-              };
-            };
-
-            nadia-forgejo = {
-              hostname = "nadia-forgejo";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nadia-forgejo;
-              };
-            };
-            tools-nixnode = {
-              hostname = "traefik-nixnode";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.tools-nixnode;
-              };
-            };
-            exit-nixnode = {
-              hostname = "traefik-nixnode";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.exit-nixnode;
-              };
-            };
-            pix-server = {
-              hostname = "pix-server";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.pix-server;
-              };
-            };
-            docker-server = {
-              hostname = "docker-server";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.docker-server;
-              };
-            };
-            rpi4 = {
-              hostname = "rpi4";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.rpi4;
-              };
-            };
-            sd-image-khadas = {
-              hostname = "khadas";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.sd-image-khadas;
-              };
-            };
-          };
         };
     };
 }

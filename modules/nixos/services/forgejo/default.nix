@@ -12,6 +12,11 @@ in
 {
   options.${namespace}.services.forgejo = {
     enable = mkEnableOption "ForgeJo";
+    disableRegistration = mkOption {
+      type = types.bool;
+      default = true;
+      description = "";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -28,7 +33,7 @@ in
           HTTP_PORT = 3000;
         };
         # You can temporarily allow registration to create an admin user.
-        service.DISABLE_REGISTRATION = true;
+        service.DISABLE_REGISTRATION = cfg.disableRegistration;
         # Add support for actions, based on act: https://github.com/nektos/act
         actions = {
           ENABLED = true;
@@ -59,9 +64,9 @@ in
       secrets.forgejoPassword.owner = "forgejo";
     };
     systemd.services.forgejo.preStart = ''
-      admin="${lib.getExe config.services.forgejo.package} admin user"
-      $admin create --admin --email "" --username admin --password "$(tr -d '\n' < $
-      {config.sops.secrets.forgejoPassword.path})" || true
+        admin="${lib.getExe config.services.forgejo.package} admin user"
+      $admin create --admin --email "root@admin.com" --username admin --password "$(tr -d '\n' < ${config.sops.secrets.forgejoPassword.path})" || true
     '';
   };
 }
+

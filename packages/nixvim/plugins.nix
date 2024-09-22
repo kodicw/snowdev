@@ -1,6 +1,7 @@
 {
-  lsp-lines = { enable = true; };
-  helm = { enable = true; };
+  lsp-lines.enable = true;
+  helm.enable = true;
+  # orgmode.enable = true;
   ollama = {
     enable = true;
     model = "gemma:2b";

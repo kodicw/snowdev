@@ -29,7 +29,6 @@ with lib.${namespace};
       xkb = enabled;
     };
     desktop.hyprland = enabled;
-    desktop.cosmic = enabled;
     bundles = {
       development = enabled;
       hyprland = enabled;
@@ -56,7 +55,16 @@ with lib.${namespace};
   # Disable the lid switch for laptops
   # useful for when you have a laptop and you want to close the lid without the system suspending
   environment.systemPackages = with pkgs; [ genix.zen-browser ];
-  services.logind.lidSwitch = "ignore";
+  # services.logind.lidSwitch = "ignore";
+  systemd.services.NetworkManager-wait-online.enable = false;
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+    intelBusId = "PCI:0:0:2";
+    nvidiaBusId = "PCI:0:1:0";
+  };
 
   networking = {
     hostName = hostname;

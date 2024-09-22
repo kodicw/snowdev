@@ -9,12 +9,20 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  hardware.nvidia.prime = {
-    sync.enable = true;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:1:0:0";
-  };
+  # hardware.nvidia.prime = {
+  #   sync.enable = true;
+  #   intelBusId = "PCI:0:2:0";
+  #   nvidiaBusId = "PCI:1:0:0";
+  # };
 
+  hardware.nvidia.prime = {
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+    intelBusId = "PCI:0:0:2";
+    nvidiaBusId = "PCI:0:1:0";
+  };
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ata_piix" "uas" "sd_mod" "sr_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
