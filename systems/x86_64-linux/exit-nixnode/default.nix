@@ -1,20 +1,15 @@
 { lib
-, pkgs
-, modulesPath
 , namespace
-, config
 , ...
 }:
 let
   hostname = "exit-nixnode";
 in
-with lib;
-with lib.${namespace};
 {
   imports = [
     ./hardware.nix
   ];
-  genix = {
+  genix = with lib.${namespace}; {
     techstack = {
       server = enabled;
     };

@@ -1,14 +1,11 @@
 { lib
-, pkgs
-, modulesPath
 , namespace
 , ...
 }:
 let
   hostname = "nadia-ollama";
 in
-with lib;
-with lib.${namespace};
+
 {
   imports = [
     ./hardware.nix
@@ -18,7 +15,7 @@ with lib.${namespace};
     device = "/dev/vda";
     useOSProber = true;
   };
-  genix = {
+  genix = with lib.${namespace}; {
     techstack = {
       server = enabled;
     };

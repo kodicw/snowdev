@@ -51,6 +51,10 @@ in
       adb = enabled;
     };
   };
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Place any dynamicly linked libraries here
+  ];
   environment.systemPackages = with pkgs; [ chromedriver genix.zen-browser ];
   systemd.services.NetworkManager-wait-online.enable = false;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";

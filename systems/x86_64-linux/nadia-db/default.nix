@@ -3,48 +3,42 @@
 , ...
 }:
 let
-  hostname = "angel";
+  hostname = "nadia-db";
 in
 {
   imports = [
     ./hardware.nix
   ];
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/vda";
+    useOSProber = true;
+  };
   genix = with lib.${namespace}; {
     techstack = {
-      workstation = enabled;
+      server = enabled;
     };
     user = {
-      angel = enabled;
+      charles = enabled;
       root = enabled;
     };
     system = {
-      boot.grub = enabled;
       locale = enabled;
       fonts = enabled;
       time = enabled;
       xkb = enabled;
-    };
-    desktop = {
-      hyprland = enabled;
-    };
-    bundles = {
-      gaming = enabled;
-      development = enabled;
+      stylix = enabled;
     };
     hardware = {
       audio = enabled;
       bluetooth = enabled;
-      nvidia = enabled;
       networkmanager = enabled;
     };
     services = {
       openssh = enabled;
       tailscale = enabled;
-    };
-    virtualisation = {
-      docker = enabled;
-      virt-manager = enabled;
-      vmVariant = enabled;
+      postgresql = enabled;
+      pgadmin = enabled;
     };
   };
 

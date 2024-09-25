@@ -46,26 +46,12 @@ with lib.${namespace};
       tailscale = enabled;
       ollama = enabled;
     };
-    virtualisation = {
-      docker = enabled;
-      virt-manager = enabled;
-      vmVariant = enabled;
-    };
   };
   # Disable the lid switch for laptops
   # useful for when you have a laptop and you want to close the lid without the system suspending
   environment.systemPackages = with pkgs; [ genix.zen-browser ];
   # services.logind.lidSwitch = "ignore";
   systemd.services.NetworkManager-wait-online.enable = false;
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
-    intelBusId = "PCI:0:0:2";
-    nvidiaBusId = "PCI:0:1:0";
-  };
-
   networking = {
     hostName = hostname;
     interfaces = {

@@ -7,13 +7,11 @@
 let
   hostname = "mainframe";
 in
-with lib;
-with lib.${namespace};
 {
   imports = [
     ./hardware.nix
   ];
-  genix = {
+  genix = with lib.${namespace}; {
     techstack = {
       workstation = enabled;
     };

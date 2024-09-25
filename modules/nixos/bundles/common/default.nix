@@ -1,6 +1,5 @@
 { pkgs
 , config
-, options
 , lib
 , namespace
 , ...
@@ -28,5 +27,8 @@ in
   options.${namespace}.bundles.common.enable = mkEnableOption "common";
   config = mkIf cfg.enable {
     genix = { inherit cli-apps tools nix; };
+    environment.systemPackages = with pkgs;  [
+      genix.zen-browser
+    ];
   };
 }

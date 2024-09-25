@@ -10,7 +10,7 @@ vm MACHINE: add
 rebuild: add
    sudo nixos-rebuild switch --flake .# --impure
 deploy MACHINE HOST:
-    deploy --hostname {{HOST}} .#{{MACHINE}} -- --impure
+    deploe --hostname {{HOST}} .#{{MACHINE}} -- --impure
 send: check
     git commit -am "send it!🌋"
     git push
