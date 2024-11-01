@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.ark;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.ark = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable ark.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable ark.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ ark ]; };
-  }
+}

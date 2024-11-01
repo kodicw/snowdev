@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.fzf;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.fzf = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable fzf.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable fzf.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ fzf ]; };
-  }
+}

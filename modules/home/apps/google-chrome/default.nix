@@ -8,12 +8,12 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.google-chrome;
-  in
-  {
+in
+{
   options.${namespace}.apps.google-chrome = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable google-chrome.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable google-chrome.";
+    };
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ google-chrome ]; };
-  }
+}

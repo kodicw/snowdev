@@ -14,7 +14,7 @@ in
       enable = mkEnableOption "Whether or not to configure mongodb";
       user = mkOption {
         type = types.str;
-      default = "charles";
+        default = "charles";
       };
     };
 

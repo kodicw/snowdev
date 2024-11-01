@@ -14,13 +14,16 @@ let
     gifpaper = enabled;
     wl-clipboard-rs = enabled;
   };
-  # services = {
-  #   hypridle = enabled;
-  # };
+  services = {
+    hypridle = enabled;
+  };
 in
 {
   options.${namespace}.bundles.hyprland.enable = mkEnableOption "hyprland";
   config = mkIf cfg.enable {
-    genix = { inherit cli-apps; };
+    genix = { inherit cli-apps services; };
+    environment.systemPackages = with pkgs; [
+      hyprlock
+    ];
   };
 }

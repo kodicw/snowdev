@@ -14,7 +14,7 @@ in
     enable = mkEnableOption "Whether or not to enable ollama.";
   };
 
-  config = mkIf cfg.enable { 
+  config = mkIf cfg.enable {
     services.ollama.enable = true;
   };
 }

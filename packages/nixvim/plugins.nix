@@ -1,6 +1,7 @@
 {
   lsp-lines.enable = true;
   helm.enable = true;
+  web-devicons.enable = true;
   # orgmode.enable = true;
   ollama = {
     enable = true;
@@ -64,7 +65,7 @@
   lspkind.enable = true;
   lint.enable = true;
   wtf.enable = true;
-  surround.enable = true;
+  vim-surround.enable = true;
 
   oil = {
     enable = true;

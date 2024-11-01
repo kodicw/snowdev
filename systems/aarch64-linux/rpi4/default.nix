@@ -1,8 +1,5 @@
-{ config
-, inputs
-, pkgs
+{ inputs
 , namespace
-, modulesPath
 , lib
 , ...
 }:
@@ -16,9 +13,9 @@ with lib.${namespace};
     ./hardware.nix
   ];
   genix = {
-    techstack = {
-      server = enabled;
-    };
+    # techstack = {
+    #   server = enabled;
+    # };
     user = {
       charles = enabled;
       root = enabled;
@@ -38,7 +35,7 @@ with lib.${namespace};
       };
     };
     bundles = {
-      arr = enabled;
+      # arr = enabled;
     };
     hardware = {
       audio = enabled;
@@ -47,16 +44,12 @@ with lib.${namespace};
     };
     services = {
       openssh = enabled;
-      jellyfin = enabled;
-      cron = enabled;
-      jellyseerr = enabled;
+      # jellyfin = enabled;
+      # jellyseerr = enabled;
       tailscale = {
         enable = true;
         upFlags = [ "--exit-node=146.70.211.70" ];
       };
-    };
-    virtualisation = {
-      docker = enabled;
     };
   };
   networking.hostName = "rpi4";

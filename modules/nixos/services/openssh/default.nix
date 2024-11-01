@@ -1,10 +1,6 @@
-{ options
-, config
+{ config
 , pkgs
 , lib
-, host ? ""
-, format ? ""
-, inputs ? { }
 , namespace
 , ...
 }:

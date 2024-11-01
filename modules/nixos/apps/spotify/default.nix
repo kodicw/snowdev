@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.spotify;
-  in
-  {
+in
+{
   options.${namespace}.apps.spotify = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable spotify.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable spotify.";
+    };
 
   config =
     mkIf cfg.enable { environment.systemPackages = with pkgs; [ spotify ]; };
-  }
+}

@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.rustscan;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.rustscan = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable rustscan.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable rustscan.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ rustscan ]; };
-  }
+}

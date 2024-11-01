@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.slurp;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.slurp = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable slurp.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable slurp.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ slurp ]; };
-  }
+}

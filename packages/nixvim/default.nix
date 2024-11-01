@@ -1,12 +1,4 @@
-{ config
-, lib
-, pkgs
-, namespace
-, system
-, inputs
-, channels
-, ...
-}:
+{ system, inputs, ... }:
 inputs.nixvim.legacyPackages."${system}".makeNixvimWithModule {
   module = import ./config.nix;
 }

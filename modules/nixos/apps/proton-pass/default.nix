@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.proton-pass;
-  in
-  {
+in
+{
   options.${namespace}.apps.proton-pass = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable proton-pass.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable proton-pass.";
+    };
 
   config =
     mkIf cfg.enable { environment.systemPackages = with pkgs; [ proton-pass ]; };
-  }
+}

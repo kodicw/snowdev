@@ -12,6 +12,7 @@ let
   apps = {
     blender = enabled;
     gimp = enabled;
+    obs = enabled;
   };
 in
 {

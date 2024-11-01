@@ -7,10 +7,10 @@
 }:
 with lib;
 with lib.${namespace}; let
-  cfg = config.${namespace}.apps.tmux;
+  cfg = config.${namespace}.cli-apps.tmux;
 in
 {
-  options.${namespace}.apps.tmux = {
+  options.${namespace}.cli-apps.tmux = {
     enable = mkEnableOption "Whether or not to enable tmux.";
   };
 

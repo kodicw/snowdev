@@ -16,10 +16,7 @@
   # };
 
   hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
-    };
+    sync.enable = true;
     intelBusId = "PCI:0:0:2";
     nvidiaBusId = "PCI:0:1:0";
   };

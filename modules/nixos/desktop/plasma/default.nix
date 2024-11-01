@@ -1,29 +1,34 @@
-{ pkgs
-, config
+{ config
 , lib
+, inputs
 , namespace
 , ...
 }:
 let
   cfg = config.${namespace}.desktop.plasma;
 in
-with lib;
-with lib.${namespace};
 {
+  imports = [
+    "${inputs.unstable}/nixos/modules/services/display-managers/ly.nix"
+  ];
   options = {
     ${namespace}.desktop.plasma = {
-      enable = mkEnableOption "Plasma Desktop";
+      enable = lib.mkEnableOption "Plasma Desktop";
     };
   };
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services = {
       xserver = {
-        enable = true;
         desktopManager.plasma5.enable = true;
-      };
-      displayManager.sddm = {
         enable = true;
       };
+      displayManager.ly = {
+        enable = true;
+        settings = {
+          animation = "matrix";
+        };
+      };
+      displayManager.execCmd = lib.mkForce "exec /run/current-system/sw/bin/ly";
     };
   };
 }

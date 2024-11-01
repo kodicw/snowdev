@@ -5,10 +5,7 @@
     nushell = {
       enable = true;
       autostart = true;
-      filetypes = [ "nu" "conf" ];
-    };
-    nimls = {
-      enable = true;
+      filetypes = [ "nu" ];
     };
     html = {
       enable = true;
@@ -31,7 +28,7 @@
     };
 
     nil-ls.enable = true;
-    tsserver.enable = true;
+    ts-ls.enable = true;
 
     pyright = {
       enable = true;

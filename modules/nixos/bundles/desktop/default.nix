@@ -1,15 +1,12 @@
-{ options
-, config
+{ config
 , lib
-, pkgs
 , namespace
 , ...
 }:
-with lib;
-with lib.${namespace};
+
 let
   cfg = config.${namespace}.bundles.desktop;
-  apps = {
+  apps = with lib.${namespace}; {
     vlc = enabled;
     gparted = enabled;
     libreoffice = enabled;
@@ -18,18 +15,15 @@ let
     kdenlive = enabled;
     proton-pass = enabled;
     protonmail-desktop = enabled;
+    banana-cursor = enabled;
   };
-  cli-apps = {
+  cli-apps = with lib.${namespace}; {
     kitty = enabled;
-  };
-  desktop = {
-    cosmic = enabled;
   };
 in
 {
   options.${namespace}.bundles.desktop = {
-    enable = mkEnableOption "Whether or not to enable python.";
+    enable = lib.mkEnableOption "Whether or not to enable python.";
   };
-
-  config = mkIf cfg.enable { genix = { inherit apps cli-apps desktop; }; };
+  config = lib.mkIf cfg.enable { genix = { inherit apps cli-apps; }; };
 }

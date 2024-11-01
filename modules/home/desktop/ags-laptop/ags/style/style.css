@@ -6,19 +6,23 @@ window {
 }
 
 window.bar {
+    background: #1e1e2e;
+    background-color: #11111b ;
 }
 
-button, .clock, .volume {
+button, .clock, .volume, network {
     background: #1e1e2e;
     background-color: #11111b ;
     box-shadow: 0 0 0px #1e1e2e;
-    border-radius: 15px;
+    border-radius: 10px;
     border: #1e1e2e;
     margin: 5px;
     color: #89b4fa; 
+    font-weight: bolder;
     padding-left: 10px;
     padding-right: 10px;
 }
+
 
 label {
     font-weight: bold;

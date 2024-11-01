@@ -28,16 +28,13 @@ in
       time = enabled;
       xkb = enabled;
       stylix = enabled;
-      shareclient = {
-        enable = true;
-        device = "100.87.112.12:/share";
-      };
     };
     ai = {
       ollama = enabled;
     };
     desktop = {
       hyprland = enabled;
+      plasma = enabled;
     };
     bundles = {
       gaming = enabled;
@@ -57,8 +54,6 @@ in
       cron = enabled;
       tailscale = enabled;
       usb-automount = enabled;
-      jellyfin = enabled;
-      # tt-rss = enabled;
     };
     virtualisation = {
       docker = enabled;
@@ -75,6 +70,7 @@ in
       neovide = enabled;
       adb = enabled;
     };
+    # containers.librenms = { enable = true;};
   };
 
 

@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.tesseract;
-  in
-  {
+in
+{
   options.${namespace}.apps.tesseract = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable tesseract.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable tesseract.";
+    };
 
   config =
     mkIf cfg.enable { environment.systemPackages = with pkgs; [ tesseract ]; };
-  }
+}

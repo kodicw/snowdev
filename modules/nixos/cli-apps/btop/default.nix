@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.btop;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.btop = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable btop.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable btop.";
+    };
 
   config =
     mkIf cfg.enable { environment.systemPackages = with pkgs; [ btop ]; };
-  }
+}

@@ -31,6 +31,16 @@ with lib.${namespace}; {
     EDITOR = "nvim";
     FLAKE = "/etc/nixos";
   };
+  home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    package = pkgs.banana-cursor;
+    size = 96;
+    name = "Banana"; # Change to whatever theme you like
+  };
+  programs.wezterm = {
+    enable = true;
+  };
   home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "24.05";
 }

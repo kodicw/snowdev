@@ -27,7 +27,7 @@ in
         job_name = "mainframe";
         static_configs = [
           {
-            targets = ["localhost:9100"];
+            targets = [ "localhost:9100" ];
           }
         ];
       }];

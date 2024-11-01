@@ -25,10 +25,10 @@ in
       enable = true;
       ensureDatabases = [ "mydatabase" ];
       enableTCPIP = true;
-      port = 5432;
-      settings = {
-        ssl = true;
-      };
+      settings.port = 5432;
+      # settings = {
+      #   ssl = true;
+      # };
       # authentication = pkgs.lib.mkOverride 10 ''
       #   #...
       #   #type database DBuser origin-address auth-method

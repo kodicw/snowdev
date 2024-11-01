@@ -8,12 +8,12 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.vivaldi;
-  in
-  {
+in
+{
   options.${namespace}.apps.vivaldi = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable vivaldi.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable vivaldi.";
+    };
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ vivaldi ]; };
-  }
+}

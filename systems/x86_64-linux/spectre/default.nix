@@ -29,6 +29,7 @@ in
     bundles = {
       development = enabled;
       common = enabled;
+      art = enabled;
       hyprland = enabled;
       desktop = enabled;
       networking = enabled;
@@ -36,6 +37,7 @@ in
     hardware = {
       audio = enabled;
       bluetooth = enabled;
+      networkmanager = enabled;
     };
     services = {
       openssh = enabled;
@@ -51,12 +53,21 @@ in
       adb = enabled;
     };
   };
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/hyprland";
+        user = "charles";
+      };
+      default_session = initial_session;
+    };
+  };
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Place any dynamicly linked libraries here
   ];
   environment.systemPackages = with pkgs; [ chromedriver genix.zen-browser ];
-  systemd.services.NetworkManager-wait-online.enable = false;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   networking = {
     hostName = hostname;

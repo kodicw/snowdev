@@ -23,6 +23,7 @@ in
         # pyinstaller
         pandas
         pillow
+        schedule
         requests
         typer
         flask

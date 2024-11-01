@@ -13,6 +13,7 @@ let
     btop = enabled;
     nushell = enabled;
     fastfetch = enabled;
+    tmux = enabled;
   };
   tools = {
     git = enabled;

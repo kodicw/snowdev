@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.trash-cli;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.trash-cli = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable trash-cli.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable trash-cli.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ trash-cli ]; };
-  }
+}

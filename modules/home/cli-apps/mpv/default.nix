@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.mpv;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.mpv = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable mpv.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable mpv.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ mpv ]; };
-  }
+}

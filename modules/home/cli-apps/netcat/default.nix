@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.netcat;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.netcat = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable netcat.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable netcat.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ netcat ]; };
-  }
+}

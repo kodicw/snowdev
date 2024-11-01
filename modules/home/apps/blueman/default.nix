@@ -8,12 +8,12 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.blueman;
-  in
-  {
+in
+{
   options.${namespace}.apps.blueman = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable blueman.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable blueman.";
+    };
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ blueman ]; };
-  }
+}

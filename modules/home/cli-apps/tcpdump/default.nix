@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.cli-apps.tcpdump;
-  in
-  {
+in
+{
   options.${namespace}.cli-apps.tcpdump = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable tcpdump.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable tcpdump.";
+    };
 
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ tcpdump ]; };
-  }
+}

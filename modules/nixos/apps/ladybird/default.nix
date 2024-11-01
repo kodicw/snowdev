@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.ladybird;
-  in
-  {
+in
+{
   options.${namespace}.apps.ladybird = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable ladybird.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable ladybird.";
+    };
 
   config =
     mkIf cfg.enable { environment.systemPackages = with pkgs; [ ladybird ]; };
-  }
+}

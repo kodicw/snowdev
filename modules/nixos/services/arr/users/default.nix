@@ -19,14 +19,15 @@ in
       arr = {
         isSystemUser = true;
         group = "arr";
-        uid = 1000;
+        uid = 6969;
       };
     };
     users.groups = {
       arr = {
-        gid = 1000;
+        gid = 6969;
         members = [ "arr" ];
       };
     };
   };
 }
+

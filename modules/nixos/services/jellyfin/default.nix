@@ -7,12 +7,12 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.services.jellyfin;
-  in
-  {
+in
+{
   options.${namespace}.services.jellyfin = with types;
-  {
-  enable = mkEnableOption "Whether or not to configure jellyfin";
-  };
+    {
+      enable = mkEnableOption "Whether or not to configure jellyfin";
+    };
 
   config = mkIf cfg.enable {
     services.jellyfin = {
@@ -20,4 +20,4 @@ with lib.${namespace}; let
       openFirewall = true;
     };
   };
-  }
+}

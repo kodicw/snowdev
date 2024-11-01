@@ -1,25 +1,23 @@
 { lib
-, pkgs
 , config
 , namespace
 , ...
 }:
-with lib;
 with lib.${namespace};
 let
   cfg = config.${namespace}.services.forgejo;
 in
 {
   options.${namespace}.services.forgejo = {
-    enable = mkEnableOption "ForgeJo";
-    disableRegistration = mkOption {
-      type = types.bool;
+    enable = lib.mkEnableOption "ForgeJo";
+    disableRegistration = lib.mkOption {
+      type = libtypes.bool;
       default = true;
       description = "";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.forgejo = {
       enable = true;
       database.type = "postgres";

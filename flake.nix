@@ -68,6 +68,8 @@
 
           sshUser = "root";
           remoteBuild = false;
+          autoRollback = true;
+          magicRollback = true;
           nodes =
             {
               node-nadia = {
@@ -77,27 +79,27 @@
                   path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.node-nadia;
                 };
               };
-              traefik-nixnode = {
-                hostname = "traefik-nixnode";
+              nix-cluster = {
+                hostname = "nix-cluster";
                 profiles.system = {
                   user = "root";
-                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.traefik-nixnode;
+                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nix-cluster;
                 };
               };
-              nadia-forgejo = {
-                hostname = "nadia-forgejo";
+              nginx-nixnode = {
+                hostname = "nginx-nixnode";
                 profiles.system = {
                   user = "root";
-                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nadia-forgejo;
+                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nginx-nixnode;
                 };
               };
-              spectre = {
-                hostname = "spectre";
-                profiles.system = {
-                  user = "root";
-                  path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.spectre;
-                };
-              };
+              # spectre = {
+              #   hostname = "spectre";
+              #   profiles.system = {
+              #     user = "root";
+              #     path = deploy-rs.lib.i686-linux.activate.nixos self.nixosConfigurations.spectre;
+              #   };
+              # };
               rpi4 = {
                 hostname = "rpi4";
                 profiles.system = {

@@ -8,12 +8,12 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.dolphin;
-  in
-  {
+in
+{
   options.${namespace}.apps.dolphin = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable dolphin.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable dolphin.";
+    };
   config =
     mkIf cfg.enable { home.packages = with pkgs; [ dolphin ]; };
-  }
+}

@@ -6,29 +6,58 @@ with lib;
 {
   options = {
     ${namespace}.services.soft-serve = {
-      enable = mkEnableOption "Enable Octoprint";
-    };
-  };
-
-  config = mkIf cfg.enable {
-    services.soft-serve = {
-      enable = true;
-      settings = {
-        name = "Dady's repos";
-        log_format = "text";
-        ssh = {
-          listen_addr = ":23231";
-          public_url = "ssh://node-nadia:23231";
-          max_timeout = 30;
-          idle_timeout = 120;
-        };
-        stats.listen_addr = ":23233";
-        initial_admin_keys = [
+      enable = mkEnableOption "Enable Soft-Serve git server";
+      name = mkOption {
+        type = types.str;
+        default = "Daddy's repos";
+        description = "Name of the server to be displayed";
+      };
+      ssh_port = mkOption {
+        type = types.str;
+        default = ":23231";
+        description = "Port to listen for SSH connections on";
+      };
+      http_port = mkOption {
+        type = types.str;
+        default = ":23232";
+        description = "Port to listen for HTTP connections on";
+      };
+      domain = mkOption {
+        type = types.str;
+        default = "soft-serve.${config.networking.hostName}";
+        description = "Domain name to use for public URLs";
+      };
+      initial_admin_keys = mkOption {
+        type = types.listOf types.str;
+        default = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICiDe2CMnDgWjXqMpQHxCSOmrjuAWwZazYPORZXlr2SF u0_a518@localhost"
-          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDEDbKoprxQnwISBW5IbabX4rEBXKprqgfO4BQUOEpt5BrdK3/y6777Mr0lopPBQTp5S/pd5BEWcSv3XGb3llcTQRjJpH6/SHzlATVn0fwCT7wXu7P5S82zGizxAeilVoS8aTa4/38CvKikcKDtvZErNyanHlGvkohf4kOV8QcOORy8t4BdH6epbVtTZKqCe9T0tafdP+upLbnWGiu4EzHkYYu+uMRuWYrBS+kimMpuQkULsjUOhv1rsQ9kEtbsAanM+ZPMizqsHE2S0d8VyZkeNysVBTGVSCUx45zif+kdVUCH5X3n6DY7QDiPn+aAOMVP9ZaubNzM3lv+I9+JB7n+W6NGQ2ONBbTFaBR6MihpIgPVaVvUxq/Edy+iAd0tk51esCxd52LUZn/UaIBjDR2XlIobgT1yngzaJ+8CAB1xaTeXRGEBivh8yNnsRlJTg0U+4e51jo8s+0WrmG3fgZIC9NJO07Zg3ztxJPz+x306oOWpQb8XStWnMhBL+BoS2X0= charles@r2"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFv8kP8LWCSGweBHEl/AmxKMLat2Y2RWonKqDSO6RrWb charles@mainframe"
         ];
+        description = "List of initial admin SSH keys";
       };
     };
   };
-}
+
+    config = mkIf cfg.enable {
+      services.soft-serve = {
+        enable = true;
+        settings = {
+          name = cfg.name;
+          log_format = "text";
+          ssh = {
+            listen_addr = cfg.ssh_port;
+            public_url = "ssh://${cfg.domain}${cfg.ssh_port}";
+          };
+          http = {
+            listen_addr = cfg.http_port;
+            public_url = "http://${cfg.domain}${cfg.http_port}";
+          };
+          stats.listen_addr = ":23233";
+          jobs.mirror_pull = "@every 1h";
+          initial_admin_keys = cfg.initial_admin_keys;
+        };
+      };
+      networking.firewall.allowedTCPPorts = [ 23231 ];  
+    };
+  }
 
