@@ -27,7 +27,6 @@
     hardware = {
       audio.enable = true;
       bluetooth.enable = true;
-      nvidia.enable = true;
       networkmanager.enable = true;
     };
     services = {
@@ -94,8 +93,8 @@ boot.loader.systemd-boot.enable = true;
   };
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "kodiw";
+  # services.xserver.displayManager.autoLogin.enable = true;
+  # services.xserver.displayManager.autoLogin.user = "kodiw";
 
   # Install firefox.
   programs.firefox.enable = true;
