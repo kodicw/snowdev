@@ -12,7 +12,6 @@
 }:
 with lib.${namespace}; {
   genix = {
-    user.root.enable = true;
     desktop = {
       hyprland = enabled;
       ags = enabled;
