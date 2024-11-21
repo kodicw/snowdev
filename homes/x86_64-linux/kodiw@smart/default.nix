@@ -13,7 +13,7 @@
 with lib.${namespace}; {
   genix = {
     desktop = {
-      hyprland-spectre = enabled;
+      hyprland-smart = enabled;
       ags-laptop = enabled;
     };
     bundles = {
