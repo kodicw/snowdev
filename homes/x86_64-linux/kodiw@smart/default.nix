@@ -14,7 +14,7 @@ with lib.${namespace}; {
   genix = {
     desktop = {
       hyprland = enabled;
-      ags = enabled;
+      ags-laptop = enabled;
     };
     bundles = {
       desktop = enabled;
