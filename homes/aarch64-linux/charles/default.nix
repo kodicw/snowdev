@@ -1,19 +1,14 @@
 { lib
-, pkgs
-, inputs
 , namespace
-, home
-, target
-, format
-, virtual
-, host
-, config
 , ...
 }:
 with lib.${namespace}; {
   genix = {
     bundles = {
       cli = enabled;
+    };
+    cli-apps = {
+      nushell = enabled;
     };
   };
   home.sessionVariables = {

@@ -2,8 +2,7 @@
 @import url("./notification.css");
 
 window {
-    /* background: transparent; */
-    background: #1e1e2e;
+    background: transparent;
 }
 
 window.bar {

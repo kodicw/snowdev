@@ -35,26 +35,55 @@ with lib;
       services =
         [
           {
-            "Node-Nadia" = [
+            "nix-cluster" = [
               {
-                Adguard = {
-                  icon = "adguard-home.png";
-                  href = "http://node-nadia:8000";
-                  description = "Adguard Home";
+                homeassistant = {
+                  icon = "homeassistant.png";
+                  href = "http://nix-cluster:8123";
+                  description = "Home assistant Server";
+                };
+              }
+            ];
+          }
+          {
+            "jelly" = [
+              {
+                jellyfin = {
+                  icon = "jellyfin.png";
+                  href = "http://jelly:8096";
+                  description = "Jellyfin Media Server";
                 };
               }
               {
-                Octoprint = {
-                  icon = "octoprint.png";
-                  href = "http://node-nadia:8383";
-                  description = "Octoprint";
+                jellyseer = {
+                  icon = "jellyseerr.png";
+                  href = "http://jelly:5055";
+                  description = "Jellyseerr";
+                };
+              }
+            ];
+          }
+          {
+            "arr" = [
+              {
+                sonarr = {
+                  icon = "sonarr.png";
+                  href = "http://arr:8989";
+                  description = "Sonarr show index server";
                 };
               }
               {
-                Kitchenowl = {
-                  icon = "kitchenowl.png";
-                  href = "http://kitchen";
-                  description = "Kitchenowl";
+                radarr = {
+                  icon = "radarr.png";
+                  href = "http://arr:7878";
+                  description = "Radarr movie index server";
+                };
+              }
+              {
+                prowlarr = {
+                  icon = "prowlarr.png";
+                  href = "http://arr:9696";
+                  description = "Prowlarr index server";
                 };
               }
             ];
@@ -62,6 +91,19 @@ with lib;
         ];
       bookmarks =
         [
+          {
+            Work = [
+              {
+                Smart-eco = [
+                  {
+                    icon = "";
+                    abbr = "SM";
+                    href = "https://smartco.us";
+                  }
+                ];
+              }
+            ]; 
+          }
           {
             Development = [
               {

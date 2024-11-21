@@ -14,5 +14,5 @@ in
     enable = mkEnableOption "Whether or not to enable armcord.";
   };
 
-  config = mkIf cfg.enable { environment.systemPackages = with pkgs; [ armcord ]; };
+  config = mkIf cfg.enable { environment.systemPackages = with pkgs; [ legcord ]; };
 }

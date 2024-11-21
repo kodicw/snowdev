@@ -7,6 +7,7 @@
 }:
 let
   hostname = "nginx-nixnode";
+  softport = 2222;
 in
 with lib;
 with lib.${namespace};
@@ -37,7 +38,7 @@ with lib.${namespace};
         domain = "git.declarativepenguin.com";
         enable = true;
         name = "Daddy's repos";
-        ssh_port = ":23231";
+        ssh_port = ":${builtins.toString softport}";
       };
       # netbox = enabled;
       terraria = enabled;
@@ -57,12 +58,12 @@ with lib.${namespace};
         extraConfig = ''
           client_max_body_size 512M;
         '';
-        locations."/".proxyPass = "http://localhost:23232";
+        locations."/".proxyPass = "http://localhost:${builtins.toString softport}";
       };
     };
   };
   # networking.firewall.allowedTCPPorts = [ 80 443 7777 7778];
-  networking.firewall.allowedTCPPorts = [  7777 ];
+  networking.firewall.allowedTCPPorts = [ 7777 softport ];
   programs.nix-ld.enable = true;
   networking = {
     hostName = hostname;

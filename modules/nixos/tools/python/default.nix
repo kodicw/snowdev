@@ -22,6 +22,7 @@ in
         playwright
         # pyinstaller
         pandas
+        pexpect
         pillow
         schedule
         requests

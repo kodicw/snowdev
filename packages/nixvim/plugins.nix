@@ -2,6 +2,7 @@
   lsp-lines.enable = true;
   helm.enable = true;
   web-devicons.enable = true;
+  avante.enable = true;
   # orgmode.enable = true;
   ollama = {
     enable = true;

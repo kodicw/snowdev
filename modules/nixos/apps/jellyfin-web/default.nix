@@ -8,13 +8,13 @@
 with lib;
 with lib.${namespace}; let
   cfg = config.${namespace}.apps.jellyfin-web;
-  in
-  {
+in
+{
   options.${namespace}.apps.jellyfin-web = with types;
-  {
-  enable = mkEnableOption "Whether or not to enable jellyfin-web.";
-  };
+    {
+      enable = mkEnableOption "Whether or not to enable jellyfin-web.";
+    };
 
   config =
     mkIf cfg.enable { environment.systemPackages = with pkgs; [ jellyfin-web ]; };
-  }
+}

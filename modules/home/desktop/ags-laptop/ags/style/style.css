@@ -6,8 +6,9 @@ window {
 }
 
 window.bar {
-    background: #1e1e2e;
-    background-color: #11111b ;
+    background: transparent;
+    /* background-color: #11111b ; */
+    /* border-radius: 10px; */
 }
 
 button, .clock, .volume, network {

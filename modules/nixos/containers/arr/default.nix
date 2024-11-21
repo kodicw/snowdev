@@ -71,6 +71,13 @@ with lib;
             openFirewall = true;
             #Port = 8080;
           };
+          deluge = {
+            enable = true;
+            user = "arr";
+            group = "arr";
+            openFirewall = true;
+            web.enable = true;
+          };
           avahi = {
             nssmdns4 = true; # Allows software to use Avahi to resolve.
             enable = true;

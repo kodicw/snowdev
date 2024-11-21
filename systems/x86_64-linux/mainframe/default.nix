@@ -27,10 +27,6 @@ in
       fonts = enabled;
       time = enabled;
       xkb = enabled;
-      stylix = enabled;
-    };
-    ai = {
-      ollama = enabled;
     };
     desktop = {
       hyprland = enabled;
@@ -69,12 +65,17 @@ in
       rgbctl = enabled;
       neovide = enabled;
       adb = enabled;
+      taskwarrior = enabled;
     };
-    # containers.librenms = { enable = true;};
+  };
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
   };
 
 
-  environment.systemPackages = with pkgs; [ chromedriver ];
+  environment.systemPackages = with pkgs; [ chromedriver carapace ];
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];

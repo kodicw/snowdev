@@ -22,6 +22,10 @@ with lib.${namespace}; {
     };
     cli-apps = {
       burpsuite = enabled;
+      nushell = {
+        enable = true;
+        skate = true;
+      };
     };
     apps = {
       jami = enabled;
@@ -29,7 +33,6 @@ with lib.${namespace}; {
   };
   home.sessionVariables = {
     EDITOR = "nvim";
-    FLAKE = "/etc/nixos";
   };
   home.pointerCursor = {
     x11.enable = true;
@@ -40,6 +43,21 @@ with lib.${namespace}; {
   };
   programs.wezterm = {
     enable = true;
+  };
+  dconf.settings = {
+      "org/gnome/desktop/background" = {
+        picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
   };
   home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "24.05";

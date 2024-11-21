@@ -11,6 +11,7 @@ let
   cfg = config.${namespace}.bundles.networking;
   tools = {
     lldpd = enabled;
+    netscanner = enabled;
   };
   services = {
     mullvad-vpn = enabled;

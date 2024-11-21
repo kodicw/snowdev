@@ -39,19 +39,26 @@ in
     virtualisation.docker.enable = true;
     services = {
       openssh = enabled;
+      ollama = enabled;
       tailscale = enabled;
+      homepage = enabled;
+      home-assistant = {
+        enable = true;
+        openFirewall = true;
+      };
       # arr.users = enabled;
     };
     containers = {
       jelly.enable = true;
       arr.enable = true;
-      terraria = enabled;
       # librenms.enable = true;
+      phoneinfoga.enable = true;
       nagios.enable = true;
       forgejo.enable = true;
     };
   };
-  networking.firewall.allowedTCPPorts = [ 80 8001 ];
+  networking.firewall.allowedTCPPorts = [ 80 8001 8080 8123 11434 ];
+  networking.firewall.allowedUDPPorts = [ 11434 ];
   # boot.kernel = {
   #   sysctl = {
   #     "net.ipv4.conf.all.forwarding" = true;

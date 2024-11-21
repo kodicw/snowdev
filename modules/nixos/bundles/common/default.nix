@@ -14,7 +14,10 @@ let
     nushell = enabled;
     fastfetch = enabled;
     tmux = enabled;
-  };
+    dooit = enabled;
+    proxychains = enabled;
+    aspell = enabled;
+   };
   tools = {
     git = enabled;
     mosh = enabled;
