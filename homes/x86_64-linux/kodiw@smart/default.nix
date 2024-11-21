@@ -16,6 +16,7 @@ with lib.${namespace}; {
       hyprland = enabled;
       ags = enabled;
     };
+    user.root.enable = true;
     bundles = {
       desktop = enabled;
       cli = enabled;

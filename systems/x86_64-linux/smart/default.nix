@@ -10,6 +10,9 @@
       ./hardware.nix
     ];
   genix = {
+    techstack = {
+      workstation.enable = true;
+    };
     system = {
       locale.enable = true;
       fonts.enable = true;
