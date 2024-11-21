@@ -64,9 +64,6 @@ in
     };
   };
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Place any dynamicly linked libraries here
-  ];
   environment.systemPackages = with pkgs; [ chromedriver genix.zen-browser ];
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   networking = {
